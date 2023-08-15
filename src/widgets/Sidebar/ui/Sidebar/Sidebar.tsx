@@ -1,4 +1,4 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from 'shared/lib/classNames/classNames'
 import { type FC, useState } from 'react'
 import classes from './Sidebar.module.scss'
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher'

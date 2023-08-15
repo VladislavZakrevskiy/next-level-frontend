@@ -1,4 +1,4 @@
-import { cn } from '../../../shared/lib/classNames'
+import { cn } from '../../../shared/lib/classNames/classNames'
 import { type FC } from 'react'
 import classes from './Navbar.module.scss'
 import { AppLink } from 'shared/ui/AppLink'

@@ -2,7 +2,7 @@ import HTMLWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import webpack from 'webpack'
 import { type BuildOptions } from './types/config'
-import ReactRefreshWebpackPlugin from 'react-refresh-webpack-plugin'
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
 export const buildPlugins = ({
   paths: { html },

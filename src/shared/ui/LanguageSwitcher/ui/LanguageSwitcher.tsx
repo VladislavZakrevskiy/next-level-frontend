@@ -1,6 +1,5 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from 'shared/lib/classNames/classNames'
 import { type FC } from 'react'
-import classes from './LanguageSwitcher.module.scss'
 import { useTranslation } from 'react-i18next'
 import { Button, ThemeButton } from 'shared/ui/Button'
 
@@ -19,7 +18,7 @@ export const LanguageSwitcher: FC<Props> = ({
 
   return (
         <div
-          className={cn(classes.LanguageSwitcher, {}, [
+          className={cn('', {}, [
               className,
             ])}
         >
