@@ -4,13 +4,14 @@ import { useTheme } from './providers/ThemeProvider'
 import { cn } from '../shared/lib/classNames/classNames'
 import { AppRouter } from './providers/router'
 import { Sidebar } from '../widgets/Sidebar'
+import { PageLoader } from 'shared/ui/PageLoader'
 
 const App = () => {
     const { theme } = useTheme()
 
     return (
         <div className={cn('app', {}, [theme])}>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<PageLoader/>}>
                 <Navbar />
                 <div className="content-page">
                     <Sidebar />
