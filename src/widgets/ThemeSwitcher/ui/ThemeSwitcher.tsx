@@ -1,4 +1,3 @@
-import { cn } from '../../../lib/classNames/classNames'
 import { type FC } from 'react'
 import {
     useTheme,
@@ -6,7 +5,8 @@ import {
 } from 'app/providers/ThemeProvider'
 import LightIcon from 'shared/assets/icons/theme-light.svg'
 import DarkIcon from 'shared/assets/icons/theme-dark.svg'
-import { Button, ThemeButton } from '../../Button'
+import { cn } from 'shared/lib/classNames'
+import { Button, ThemeButton } from 'shared/ui/Button'
 
 interface ThemeSwitcherProps {
     className?: string

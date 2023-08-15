@@ -4,27 +4,32 @@ import classes from './Sidebar.module.scss'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher'
 
-
 interface Props {
-  className?: string
+    className?: string
 }
 
 export const Sidebar: FC<Props> = ({ className }) => {
-    const [collapsed, setCollapsed] = useState<boolean>(false)
+    const [collapsed, setCollapsed] =
+        useState<boolean>(false)
 
     const onToggle = () => {
-        setCollapsed(prev => !prev)
+        setCollapsed((prev) => !prev)
     }
 
     return (
-      <div
-            className={cn(classes.Sidebar, { [classes.collapsed]: collapsed }, [className])}
+        <div
+            data-testid="TEST"
+            className={cn(
+                classes.Sidebar,
+                { [classes.collapsed]: collapsed },
+                [className]
+            )}
         >
-            <button onClick={onToggle}>toggle</button>
+            <button data-testid='sidebar-toggle' onClick={onToggle}>toggle</button>
             <div className={classes.switchers}>
-              <ThemeSwitcher />
-              <LanguageSwitcher/>
-          </div>
+                <ThemeSwitcher />
+                <LanguageSwitcher />
+            </div>
         </div>
     )
 }
