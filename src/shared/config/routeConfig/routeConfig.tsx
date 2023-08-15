@@ -1,10 +1,10 @@
-import { LazyAboutPage } from "pages/AboutPage";
-import { RouteProps } from "react-router-dom"
-import { LazyMainPage } from '../../../pages/MainPage';
+import { LazyAboutPage } from 'pages/AboutPage'
+import { type RouteProps } from 'react-router-dom'
+import { LazyMainPage } from '../../../pages/MainPage'
 
 export enum AppRoutes {
-    MAIN = 'main',
-    ABOUT = 'about'
+  MAIN = 'main',
+  ABOUT = 'about'
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
