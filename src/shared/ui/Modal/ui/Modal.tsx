@@ -10,6 +10,7 @@ import {
 } from 'react'
 import classes from './Modal.module.scss'
 import { Portal } from 'shared/ui/Portal'
+import { useTheme } from 'app/providers/ThemeProvider'
 
 interface Props {
     className?: string
@@ -26,6 +27,7 @@ export const Modal: FC<Props> = ({
 }) => {
     const [isClosing, setIsClosing] = useState(false)
     const timerRef = useRef<ReturnType<typeof setTimeout>>()
+    const { theme } = useTheme()
 
     const mods: Record<string, boolean> = {
         [classes.opened]: isOpen,
@@ -70,7 +72,7 @@ export const Modal: FC<Props> = ({
         <Portal>
             <div
                 className={cn(classes.Modal, mods, [
-                    className,
+                    className, theme
                 ])}
             >
                 <div
