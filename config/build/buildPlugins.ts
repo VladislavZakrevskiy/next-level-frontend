@@ -21,7 +21,6 @@ export const buildPlugins = ({
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
         }),
-        new BundleAnalyzerPlugin(),
     ]
 
     if (isDev) {
@@ -29,6 +28,7 @@ export const buildPlugins = ({
             new webpack.HotModuleReplacementPlugin()
         )
         plugins.push(new ReactRefreshWebpackPlugin())
+        plugin.push(new BundleAnalyzerPlugin())
     }
 
     return plugins
