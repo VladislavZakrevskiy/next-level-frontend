@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Button, ThemeButton } from '../index';
+import { Button, SizeButton, ThemeButton } from '../index';
 
 export default {
     title: 'shared/Button',
@@ -38,3 +38,40 @@ OutlineDark.args = {
     theme: ThemeButton.OUTLINE,
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Background = Template.bind({});
+Background.args = {
+    children: 'Text',
+    theme: ThemeButton.BACKGROUND,
+};
+
+export const BackgroundInverted = Template.bind({});
+BackgroundInverted.args = {
+    children: 'Text',
+    theme: ThemeButton.BACKGROUND_INVERTED,
+};
+
+export const SquareSizeM = Template.bind({});
+SquareSizeM.args = {
+    children: 'Text',
+    theme: ThemeButton.BACKGROUND_INVERTED,
+    square: true,
+    size: SizeButton.M
+};
+
+export const SquareSizeL = Template.bind({});
+SquareSizeL.args = {
+    children: 'Text',
+    theme: ThemeButton.BACKGROUND_INVERTED,
+    square: true,
+    size: SizeButton.L
+};
+
+export const SquareSizeXL = Template.bind({});
+SquareSizeXL.args = {
+    children: 'Text',
+    theme: ThemeButton.BACKGROUND_INVERTED,
+    square: true,
+    size: SizeButton.XL
+};
+

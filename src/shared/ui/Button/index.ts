@@ -1,1 +1,1 @@
-export { Button, ThemeButton } from './ui/Button';
+export { Button, ThemeButton, SizeButton } from './ui/Button';
