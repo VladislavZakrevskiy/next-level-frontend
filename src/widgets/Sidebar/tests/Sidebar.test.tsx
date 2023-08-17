@@ -1,7 +1,7 @@
 import { fireEvent, screen } from '@testing-library/react'
 import { Sidebar } from '../ui/Sidebar/Sidebar';
-import { withTranslation } from 'react-i18next';
 import { renderWithTranslation } from '../../../shared/lib/tests/renderWithTranslation/renderWithTranslation';
+import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
 
 describe('Sidebar', () => {
     test('Sidebar exist?', () => {
@@ -10,7 +10,7 @@ describe('Sidebar', () => {
     })
 
     test('Sidebar collapses?', () => {
-        renderWithTranslation(<Sidebar/>)
+        componentRender(<Sidebar/>)
         const toggleBtn = screen.getByTestId('sidebar-toggle')
         fireEvent.click(toggleBtn)
         expect(screen.getByTestId('TEST')).toHaveClass('collapsed')
