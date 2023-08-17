@@ -1,7 +1,6 @@
 import { cn } from 'shared/lib/classNames'
 import {
     FC,
-    KeyboardEvent,
     MouseEvent,
     ReactNode,
     useCallback,
@@ -44,8 +43,8 @@ export const Modal: FC<Props> = ({
     }, [onClose])
 
     const onKeyDown = useCallback(
-        (e: KeyboardEvent) => {
-            if (e.key === 'Escape') {
+        (ev: KeyboardEvent) => {
+            if (ev.key === 'Escape') {
                 closeHandler()
             }
         },

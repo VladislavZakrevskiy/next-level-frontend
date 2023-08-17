@@ -32,6 +32,7 @@
 }
 
 .collapsedBtn {
+    position: absolute;
     right: -32px;
     bottom: 32px;
 }
@@ -41,7 +42,7 @@
     margin-left: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10;
+    gap: 10px;
 }
 
 .item {
@@ -51,5 +52,7 @@
 }
 
 .icon {
+    width: var(--font-line-m);
+    height: var(--font-line-m);
     fill: var(--inverted-primary-color);
 }

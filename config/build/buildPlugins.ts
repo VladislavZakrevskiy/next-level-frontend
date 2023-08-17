@@ -28,7 +28,7 @@ export const buildPlugins = ({
             new webpack.HotModuleReplacementPlugin()
         )
         plugins.push(new ReactRefreshWebpackPlugin())
-        plugin.push(new BundleAnalyzerPlugin())
+        plugins.push(new BundleAnalyzerPlugin())
     }
 
     return plugins
