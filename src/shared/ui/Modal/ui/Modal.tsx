@@ -72,7 +72,9 @@ export const Modal: FC<Props> = ({
         <Portal>
             <div
                 className={cn(classes.Modal, mods, [
-                    className, theme
+                    className,
+                    theme,
+                    'app_modal',
                 ])}
             >
                 <div
