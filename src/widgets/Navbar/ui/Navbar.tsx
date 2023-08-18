@@ -6,6 +6,7 @@ import { AppLinkTheme } from '../../../shared/ui/AppLink'
 import { useTranslation } from 'react-i18next'
 import { Button, ThemeButton } from 'shared/ui/Button'
 import { Modal } from 'shared/ui/Modal'
+import { LoginModal } from 'features/AuthByUsername'
 
 interface NavbarProps {
     className?: string
@@ -26,21 +27,14 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
             <Button
                 theme={ThemeButton.OUTLINE}
                 className={classes.links}
+                onClick={onToggleModal}
             >
                 {t('Войти')}
             </Button>
-            <Modal
+            <LoginModal
                 isOpen={isAuthModal}
                 onClose={onToggleModal}
-            >
-                Lorem ipsum dolor sit amet, consectetur
-                adipisicing elit. Rerum eaque, quidem harum
-                dignissimos expedita reprehenderit. Ratione,
-                voluptates. Assumenda architecto
-                consequuntur, molestias accusantium ad minus
-                voluptatibus ullam dolorem deleniti
-                consectetur! Unde!
-            </Modal>
+            />
         </div>
     )
 }

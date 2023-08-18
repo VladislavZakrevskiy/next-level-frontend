@@ -17,6 +17,7 @@ interface Props {
     children: ReactNode
     isOpen?: boolean
     onClose?: () => void
+    lazy?: boolean
 }
 
 export const Modal: FC<Props> = ({
@@ -24,10 +25,18 @@ export const Modal: FC<Props> = ({
     children,
     isOpen,
     onClose,
+    lazy
 }) => {
     const [isClosing, setIsClosing] = useState(false)
+    const [isMounting, setIsMounting] = useState(false)
     const timerRef = useRef<ReturnType<typeof setTimeout>>()
     const { theme } = useTheme()
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounting(true)
+        }
+    }, [isOpen])
 
     const mods: Record<string, boolean> = {
         [classes.opened]: isOpen,
@@ -66,6 +75,10 @@ export const Modal: FC<Props> = ({
 
     const onContentClick = (e: MouseEvent) => {
         e.stopPropagation()
+    }
+
+    if (lazy && !isMounting) {
+        return null
     }
 
     return (
