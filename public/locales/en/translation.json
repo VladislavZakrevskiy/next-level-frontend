@@ -8,5 +8,8 @@
     "Короткий язык": "En",
     "Войти": "Log in",
     "Введите пароль": "Log password",
-    "Введите имя": "Log username"
+    "Введите имя": "Log username",
+    "Форма авторизации": "Auth form",
+    "Вы ввели неверный логин или пароль": "You entered wrong login or password",
+    "Выйти": "Logout"
 }

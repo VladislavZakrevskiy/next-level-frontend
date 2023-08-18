@@ -22,6 +22,7 @@ interface ButtonProps
     theme?: ThemeButton
     square?: boolean
     size?: SizeButton
+    disabled?: boolean
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -30,10 +31,12 @@ export const Button: FC<ButtonProps> = ({
     theme,
     square,
     size,
+    disabled,
     ...otherProps
 }) => {
     const mods: Record<string, boolean> = {
         [classes.square]: square,
+        [classes.disabled]: disabled
     }
 
     return (
@@ -44,6 +47,7 @@ export const Button: FC<ButtonProps> = ({
                 classes[theme],
                 classes[size],
             ])}
+            disabled={disabled}
         >
             {children}
         </button>
