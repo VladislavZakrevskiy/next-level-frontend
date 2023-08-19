@@ -1,10 +1,10 @@
 import { cn } from 'shared/lib/classNames'
-import { FC, memo, useCallback, useEffect } from 'react'
+import { FC, memo, useCallback } from 'react'
 import classes from './LoginForm.module.scss'
 import { useTranslation } from 'react-i18next'
 import { Button, ThemeButton } from 'shared/ui/Button'
 import { Input } from 'shared/ui/Input'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import {
     AuthActions,
     loginByUsername,
@@ -19,79 +19,89 @@ import {
     DynamicModuleLoader,
     ReducerList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 interface Props {
     className?: string
+    onSuccess?: () => void
 }
 
 const initialReducers: ReducerList = {
     login: AuthReducer,
 }
 
-const LoginForm: FC<Props> = memo(({ className }) => {
-    const { t } = useTranslation()
-    const password = useSelector(getLoginPassword)
-    const username = useSelector(getLoginUsername)
-    const isLoading = useSelector(getLoginIsLoading)
-    const error = useSelector(getLoginError)
-    const dispatch = useDispatch()
+const LoginForm: FC<Props> = memo(
+    ({ className, onSuccess }) => {
+        const { t } = useTranslation()
+        const password = useSelector(getLoginPassword)
+        const username = useSelector(getLoginUsername)
+        const isLoading = useSelector(getLoginIsLoading)
+        const error = useSelector(getLoginError)
+        const dispatch = useAppDispatch()
 
-    const onChangeUsername = useCallback(
-        (value: string) => {
-            dispatch(AuthActions.setUsername(value))
-        },
-        [dispatch]
-    )
+        const onChangeUsername = useCallback(
+            (value: string) => {
+                dispatch(AuthActions.setUsername(value))
+            },
+            [dispatch]
+        )
 
-    const onChangePassword = useCallback(
-        (value: string) => {
-            dispatch(AuthActions.setPassword(value))
-        },
-        [dispatch]
-    )
+        const onChangePassword = useCallback(
+            (value: string) => {
+                dispatch(AuthActions.setPassword(value))
+            },
+            [dispatch]
+        )
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ username, password }))
-    }, [dispatch, username, password])
+        const onLoginClick = useCallback(async () => {
+            const result = await dispatch(
+                loginByUsername({ username, password })
+            )
 
-    return (
-        <DynamicModuleLoader reducers={initialReducers}>
-            <div
-                className={cn(classes.LoginForm, {}, [
-                    className,
-                ])}
-            >
-                <Text title={t('Форма авторизации')} />
-                {error && (
-                    <Text
-                        text={t(
-                            'Вы ввели неверный логин или пароль'
-                        )}
-                        theme={TextTheme.ERROR}
-                    />
-                )}
-                <Input
-                    type="text"
-                    placeholder={t('Введите имя')}
-                    onChange={onChangeUsername}
-                    value={username}
-                />
-                <Input
-                    type="password"
-                    placeholder={t('Введите пароль')}
-                    value={password}
-                    onChange={onChangePassword}
-                />
-                <Button
-                    theme={ThemeButton.OUTLINE}
-                    onClick={onLoginClick}
-                    disabled={isLoading}
+            if (result.meta.requestStatus === 'fulfilled') {
+                onSuccess?.()
+            }
+        }, [onSuccess, dispatch, username, password])
+
+        return (
+            <DynamicModuleLoader reducers={initialReducers}>
+                <div
+                    className={cn(classes.LoginForm, {}, [
+                        className,
+                    ])}
                 >
-                    {t('Войти')}
-                </Button>
-            </div>
-        </DynamicModuleLoader>
-    )
-})
+                    <Text title={t('Форма авторизации')} />
+                    {error && (
+                        <Text
+                            text={t(
+                                'Вы ввели неверный логин или пароль'
+                            )}
+                            theme={TextTheme.ERROR}
+                        />
+                    )}
+                    <Input
+                        type="text"
+                        placeholder={t('Введите имя')}
+                        onChange={onChangeUsername}
+                        value={username}
+                    />
+                    <Input
+                        type="password"
+                        placeholder={t('Введите пароль')}
+                        value={password}
+                        onChange={onChangePassword}
+                    />
+                    <Button
+                        theme={ThemeButton.OUTLINE}
+                        onClick={onLoginClick}
+                        disabled={isLoading}
+                    >
+                        {t('Войти')}
+                    </Button>
+                </div>
+            </DynamicModuleLoader>
+        )
+    }
+)
 
 export default LoginForm
