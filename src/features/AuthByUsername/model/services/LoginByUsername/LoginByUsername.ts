@@ -1,4 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
+import { ThunkExtraArg } from 'app/providers/StoreProvider'
+import { ThunkConfig } from 'app/providers/StoreProvider/config/StateSchema'
 import axios from 'axios'
 import { User, UserActions } from 'entities/User'
 import i18n from 'shared/config/i18n/i18n'
@@ -11,19 +13,22 @@ interface LoginByUsernameProps {
 
 export enum LoginErrors {
     INCORRECT_DATA = '',
-    SERVER_ERROR = ''
+    SERVER_ERROR = '',
 }
 
 export const loginByUsername = createAsyncThunk<
     User,
     LoginByUsernameProps,
-    { rejectValue: string }
+    ThunkConfig<string>
 >(
     'auth/loginByUsername',
-    async (authData, { rejectWithValue, dispatch }) => {
+    async (
+        authData,
+        { rejectWithValue, dispatch, extra: { api } }
+    ) => {
         try {
-            const response = await axios.post<User>(
-                'http://localhost:8000/login',
+            const response = await api.post<User>(
+                '/login',
                 authData
             )
 

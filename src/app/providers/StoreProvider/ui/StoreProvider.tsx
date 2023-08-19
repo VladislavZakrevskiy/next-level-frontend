@@ -6,6 +6,7 @@ import {
     DeepPartial,
     ReducersMapObject,
 } from '@reduxjs/toolkit'
+import { useNavigate } from 'react-router-dom'
 
 interface Props {
     children: ReactNode
@@ -20,9 +21,12 @@ export const StoreProvider: FC<Props> = ({
     initialSchema,
     asyncReducers,
 }) => {
+    const nav = useNavigate()
+
     const store = createReduxStore(
         initialSchema as StateSchema,
-        asyncReducers as ReducersMapObject<StateSchema>
+        asyncReducers as ReducersMapObject<StateSchema>,
+        nav
     )
 
     return <Provider store={store}>{children}</Provider>
