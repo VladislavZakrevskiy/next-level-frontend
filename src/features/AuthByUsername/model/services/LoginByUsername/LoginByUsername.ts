@@ -9,6 +9,11 @@ interface LoginByUsernameProps {
     password: string
 }
 
+export enum LoginErrors {
+    INCORRECT_DATA = '',
+    SERVER_ERROR = ''
+}
+
 export const loginByUsername = createAsyncThunk<
     User,
     LoginByUsernameProps,
@@ -34,9 +39,7 @@ export const loginByUsername = createAsyncThunk<
             return response.data
         } catch (err) {
             console.error(err)
-            return rejectWithValue(
-                i18n.t('Вы ввели неверный логин или пароль')
-            )
+            return rejectWithValue('error')
         }
     }
 )

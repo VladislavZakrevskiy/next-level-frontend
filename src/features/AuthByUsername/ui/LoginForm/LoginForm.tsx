@@ -1,5 +1,5 @@
 import { cn } from 'shared/lib/classNames'
-import { FC, memo, useCallback } from 'react'
+import { FC, memo, useCallback, useEffect } from 'react'
 import classes from './LoginForm.module.scss'
 import { useTranslation } from 'react-i18next'
 import { Button, ThemeButton } from 'shared/ui/Button'
@@ -7,43 +7,55 @@ import { Input } from 'shared/ui/Input'
 import { useDispatch, useSelector } from 'react-redux'
 import {
     AuthActions,
-    getLoginState,
     loginByUsername,
 } from 'features/AuthByUsername'
 import { Text, TextTheme } from 'shared/ui/Text'
+import { AuthReducer } from '../../model/slice/authSlice'
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword'
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'
+import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading'
+import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername'
+import {
+    DynamicModuleLoader,
+    ReducerList,
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
 interface Props {
     className?: string
 }
 
-export const LoginForm: FC<Props> = memo(
-    ({ className }) => {
-        const { t } = useTranslation()
-        const { password, username, isLoading, error } =
-            useSelector(getLoginState)
-        const dispatch = useDispatch()
+const initialReducers: ReducerList = {
+    login: AuthReducer,
+}
 
-        const onChangeUsername = useCallback(
-            (value: string) => {
-                dispatch(AuthActions.setUsername(value))
-            },
-            [dispatch]
-        )
+const LoginForm: FC<Props> = memo(({ className }) => {
+    const { t } = useTranslation()
+    const password = useSelector(getLoginPassword)
+    const username = useSelector(getLoginUsername)
+    const isLoading = useSelector(getLoginIsLoading)
+    const error = useSelector(getLoginError)
+    const dispatch = useDispatch()
 
-        const onChangePassword = useCallback(
-            (value: string) => {
-                dispatch(AuthActions.setPassword(value))
-            },
-            [dispatch]
-        )
+    const onChangeUsername = useCallback(
+        (value: string) => {
+            dispatch(AuthActions.setUsername(value))
+        },
+        [dispatch]
+    )
 
-        const onLoginClick = useCallback(() => {
-            dispatch(
-                loginByUsername({ username, password })
-            )
-        }, [dispatch, username, password])
+    const onChangePassword = useCallback(
+        (value: string) => {
+            dispatch(AuthActions.setPassword(value))
+        },
+        [dispatch]
+    )
 
-        return (
+    const onLoginClick = useCallback(() => {
+        dispatch(loginByUsername({ username, password }))
+    }, [dispatch, username, password])
+
+    return (
+        <DynamicModuleLoader reducers={initialReducers}>
             <div
                 className={cn(classes.LoginForm, {}, [
                     className,
@@ -52,7 +64,9 @@ export const LoginForm: FC<Props> = memo(
                 <Text title={t('Форма авторизации')} />
                 {error && (
                     <Text
-                        text={error}
+                        text={t(
+                            'Вы ввели неверный логин или пароль'
+                        )}
                         theme={TextTheme.ERROR}
                     />
                 )}
@@ -76,6 +90,8 @@ export const LoginForm: FC<Props> = memo(
                     {t('Войти')}
                 </Button>
             </div>
-        )
-    }
-)
+        </DynamicModuleLoader>
+    )
+})
+
+export default LoginForm
