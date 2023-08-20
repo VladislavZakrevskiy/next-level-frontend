@@ -1,5 +1,6 @@
 import {
-    DeepPartial,
+    CombinedState,
+    Reducer,
     ReducersMapObject,
     configureStore,
 } from '@reduxjs/toolkit'
@@ -22,9 +23,8 @@ export const createReduxStore = (
     const reducerManager =
         createReducerManager(rootReducers)
 
-    // <StateSchema>
     const store = configureStore({
-        reducer: reducerManager.reduce,
+        reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: __IS_DEV__,
         preloadedState: initaialState,
         middleware: (getDefaultMiddleware) =>

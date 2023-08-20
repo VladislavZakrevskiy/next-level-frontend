@@ -1,4 +1,4 @@
-import { cn } from 'shared/lib/classNames/classNames'
+import { Mods, cn } from 'shared/lib/classNames/classNames'
 import {
     memo,
     type ButtonHTMLAttributes,
@@ -33,13 +33,13 @@ export const Button: FC<ButtonProps> = memo(
     ({
         className,
         children,
-        theme,
+        theme = ThemeButton.OUTLINE,
         square,
-        size,
+        size = SizeButton.L,
         disabled,
         ...otherProps
     }) => {
-        const mods: Record<string, boolean> = {
+        const mods:Mods = {
             [classes.square]: square,
             [classes.disabled]: disabled,
         }

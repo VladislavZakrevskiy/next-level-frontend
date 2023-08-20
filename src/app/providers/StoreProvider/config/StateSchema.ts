@@ -38,7 +38,7 @@ export interface ReducerManager {
 
 export interface ThunkExtraArg {
     api: AxiosInstance
-    nav: (to: To, options?: NavigateOptions) => void
+    nav?: (to: To, options?: NavigateOptions) => void
 }
 
 export interface ThunkConfig<T = string> {

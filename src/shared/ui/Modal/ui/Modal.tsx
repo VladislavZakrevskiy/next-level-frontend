@@ -1,7 +1,8 @@
-import { cn } from 'shared/lib/classNames'
+import { cn, Mods } from 'shared/lib/classNames'
 import {
     FC,
     MouseEvent,
+    MutableRefObject,
     ReactNode,
     useCallback,
     useEffect,
@@ -25,11 +26,13 @@ export const Modal: FC<Props> = ({
     children,
     isOpen,
     onClose,
-    lazy
+    lazy,
 }) => {
     const [isClosing, setIsClosing] = useState(false)
     const [isMounting, setIsMounting] = useState(false)
-    const timerRef = useRef<ReturnType<typeof setTimeout>>()
+    const timerRef = useRef<
+        ReturnType<typeof setTimeout>
+    >() as MutableRefObject<ReturnType<typeof setTimeout>>
     const { theme } = useTheme()
 
     useEffect(() => {
@@ -38,7 +41,7 @@ export const Modal: FC<Props> = ({
         }
     }, [isOpen])
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [classes.opened]: isOpen,
         [classes.isClosing]: isClosing,
     }
