@@ -17,6 +17,10 @@ export const fetchProfileData = createAsyncThunk<
                 '/profile'
             )
 
+            if (!response.data) {
+                throw new Error()
+            }
+
             return response.data
         } catch (err) {
             console.error(err)

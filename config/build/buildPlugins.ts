@@ -9,6 +9,7 @@ export const buildPlugins = ({
     paths: { html },
     isDev,
     apiUrl,
+    project
 }: BuildOptions): webpack.WebpackPluginInstance[] => {
     const plugins = [
         new HTMLWebpackPlugin({
@@ -21,7 +22,8 @@ export const buildPlugins = ({
         }),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
-            __API__: apiUrl,
+            __API__: JSON.stringify(apiUrl),
+            __PROJECT__: JSON.stringify(project)
         }),
     ]
 

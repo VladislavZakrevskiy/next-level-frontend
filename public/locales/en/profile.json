@@ -20,5 +20,10 @@
     "Belarus": "Belarus",
     "Kazakhstan": "Kazakhstan",
     "Russia": "Russia",
-    "Ukraine": "Ukraine"
+    "Ukraine": "Ukraine",
+    "NO_DATA": "No data in form",
+    "SERVER_ERROR": "Server error after save",
+    "INCORRECT_USER_DATA": "Firstname and lastname are required",
+    "INCORRECT_AGE": "Incorrect age",
+    "INCORRECT_COUNTRY": "Country is required"
 }

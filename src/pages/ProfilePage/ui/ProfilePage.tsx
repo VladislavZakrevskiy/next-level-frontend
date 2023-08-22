@@ -3,13 +3,13 @@ import {
     ProfileCard,
     ProfileReducer,
     fetchProfileData,
-    getProfileData,
     getProfileError,
     getProfileForm,
     getProfileIsLoading,
     getProfileReadonly,
+    getProfileValidateError,
 } from 'entities/Profile'
-import React, { memo, useCallback, useEffect } from 'react'
+import { memo, useCallback, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import {
@@ -20,21 +20,27 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
+import { Text, TextTheme } from 'shared/ui/Text'
 
 const initialReducers: ReducerList = {
     profile: ProfileReducer,
 }
 
 const ProfilePage = memo(() => {
-    const { t } = useTranslation('main')
+    const { t } = useTranslation('profile')
     const dispatch = useAppDispatch()
     const form = useSelector(getProfileForm)
     const error = useSelector(getProfileError)
     const isLoading = useSelector(getProfileIsLoading)
     const readonly = useSelector(getProfileReadonly)
+    const validateErrors = useSelector(
+        getProfileValidateError
+    )
 
     useEffect(() => {
-        dispatch(fetchProfileData())
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData())
+        }
     }, [dispatch])
 
     const onChangeFirstname = useCallback(
@@ -110,7 +116,7 @@ const ProfilePage = memo(() => {
         (value?: Currency) => {
             dispatch(
                 ProfileActions.updateProfile({
-                    currency: value || '',
+                    currency: value,
                 })
             )
         },
@@ -121,7 +127,7 @@ const ProfilePage = memo(() => {
         (value?: Country) => {
             dispatch(
                 ProfileActions.updateProfile({
-                    country: value || '',
+                    country: value,
                 })
             )
         },
@@ -131,6 +137,14 @@ const ProfilePage = memo(() => {
     return (
         <DynamicModuleLoader reducers={initialReducers}>
             <ProfilePageHeader />
+            {validateErrors?.length &&
+                validateErrors.map((err) => (
+                    <Text
+                        key={err}
+                        theme={TextTheme.ERROR}
+                        text={t(err)}
+                    />
+                ))}
             <ProfileCard
                 data={form}
                 isLoading={isLoading}

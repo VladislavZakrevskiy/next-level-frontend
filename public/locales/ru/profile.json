@@ -18,5 +18,10 @@
     "Belarus": "Беларусь",
     "Kazakhstan": "Казахстан",
     "Russia": "Россия",
-    "Ukraine": "Украина"
+    "Ukraine": "Украина",
+    "NO_DATA": "Данные не указаны",
+    "SERVER_ERROR": "Серверная ошибка при сохранении",
+    "INCORRECT_USER_DATA": "Имя и фамилия обязательны",
+    "INCORRECT_AGE": "Некорректный возраст",
+    "INCORRECT_COUNTRY": "Страна обязательна"
 }

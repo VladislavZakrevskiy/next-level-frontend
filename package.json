@@ -13,8 +13,8 @@
         "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
         "lint:scss": "stylelint  \"**/*.{css,scss}\"",
         "lint:scss:fix": "stylelint  \"**/*.{css,scss}\" --fix",
-        "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build",
+        "storybook": "storybook dev -p 6006 -c ./config/.storybook",
+        "build-storybook": "storybook build -c ./config/.storybook",
         "server:json": "json-server --watch ./json-server/db.json --port 8000",
         "server:start": "node ./json-server/index.js",
         "prepare": "husky install"
