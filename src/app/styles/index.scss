@@ -2,12 +2,12 @@
 @import 'variables/global';
 @import 'themes/normal';
 @import 'themes/dark';
+@import 'themes/orange.scss';
 
-
-
-.app, .app_modal {
+.app,
+.app_modal {
     font: var(--font-m);
-    color: var(--primary-color)
+    color: var(--primary-color);
 }
 
 .app {
