@@ -13,14 +13,15 @@ import classes from './Input.module.scss'
 
 type HTMLInputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'value' | 'onChange'
+    'value' | 'onChange' | 'readOnly'
 >
 
 interface Props extends HTMLInputProps {
     className?: string
-    value?: string
+    value?: string | number
     onChange?: (value: string) => void
     autoFocus?: boolean
+    readOnly?: boolean
 }
 
 export const Input: FC<Props> = memo((props) => {
@@ -31,12 +32,15 @@ export const Input: FC<Props> = memo((props) => {
         type,
         placeholder,
         autoFocus,
+        readOnly,
         ...otherProps
     } = props
 
     const inputRef = useRef<HTMLInputElement>(null)
     const [isFocused, setIsFocused] = useState(false)
     const [caretPos, setCaretPos] = useState(0)
+
+    const isCaretVisible = isFocused && !readOnly
 
     const onBlur = () => {
         setIsFocused(false)
@@ -80,14 +84,15 @@ export const Input: FC<Props> = memo((props) => {
                     type={type}
                     onChange={onChangeHandler}
                     value={value}
-                    className={cn(classes.Input)}
+                    className={cn(classes.Input, {[classes.readonly]: readOnly})}
                     onFocus={onFocus}
                     onBlur={onBlur}
                     onSelect={onSelect}
                     ref={inputRef}
+                    readOnly={readOnly}
                     {...otherProps}
                 />
-                {isFocused && (
+                {isCaretVisible && (
                     <span
                         className={classes.caret}
                         style={{
