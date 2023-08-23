@@ -4,7 +4,7 @@ import { type RouteProps } from 'react-router-dom'
 import { LazyMainPage } from '../../../pages/MainPage'
 import { LazyProfilePage } from 'pages/ProfilePage'
 
-type AppRouteProps = RouteProps & {
+export type AppRouteProps = RouteProps & {
     authOnly?: boolean
 }
 

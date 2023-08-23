@@ -5,12 +5,13 @@ import { cn } from '../shared/lib/classNames/classNames'
 import { AppRouter } from './providers/router'
 import { Sidebar } from '../widgets/Sidebar'
 import { PageLoader } from 'widgets/PageLoader'
-import { useDispatch } from 'react-redux'
-import { UserActions } from 'entities/User'
+import { useDispatch, useSelector } from 'react-redux'
+import { UserActions, getUserInited } from 'entities/User'
 
 const App = () => {
     const { theme } = useTheme()
     const dispatch = useDispatch()
+    const _inited = useSelector(getUserInited)
 
     useEffect(() => {
         dispatch(UserActions.initAuthData())
@@ -18,11 +19,11 @@ const App = () => {
 
     return (
         <div className={cn('app', {}, [theme])}>
-            <Suspense fallback={<PageLoader/>}>
+            <Suspense fallback={<PageLoader />}>
                 <Navbar />
                 <div className="content-page">
                     <Sidebar />
-                    <AppRouter />
+                    {_inited && <AppRouter />}
                 </div>
             </Suspense>
         </div>
