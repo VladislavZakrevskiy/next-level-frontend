@@ -8,7 +8,7 @@ import { updateProfileData } from '../services/updateProfileData/updateProfileDa
 
 const initialState: ProfileSchema = {
     readonly: true,
-    isLoading: true,
+    isLoading: false,
 }
 
 const profileSlice = createSlice({
@@ -45,7 +45,7 @@ const profileSlice = createSlice({
             .addCase(
                 fetchProfileData.fulfilled,
                 (state, action: PayloadAction<Profile>) => {
-                    state.isLoading = true
+                    state.isLoading = false
                     state.data = action.payload
                     state.form = action.payload
                 }
@@ -64,7 +64,7 @@ const profileSlice = createSlice({
             .addCase(
                 updateProfileData.fulfilled,
                 (state, action: PayloadAction<Profile>) => {
-                    state.isLoading = true
+                    state.isLoading = false
                     state.data = action.payload
                     state.form = action.payload
                     state.readonly = true

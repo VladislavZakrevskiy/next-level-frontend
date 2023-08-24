@@ -4,7 +4,7 @@ import classes from './Avatar.module.scss'
 
 interface Props {
     className?: string
-    src: string
+    src?: string
     alt: string
     size?: number
 }

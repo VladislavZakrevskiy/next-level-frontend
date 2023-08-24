@@ -1,13 +1,16 @@
 .AppLink {
-    color: var(--primary-color)
+    color: var(--primary-color);
+    &:hover {
+        opacity: 0.8;
+        fill-opacity: 0.8;
+        stroke-opacity: 0.8;
+    }
 }
 
 .primary {
-    color: var(--primary-color)
-
-}   
+    color: var(--primary-color);
+}
 
 .secondary {
-    color: var(--inverted-primary-color)
-
+    color: var(--inverted-primary-color);
 }

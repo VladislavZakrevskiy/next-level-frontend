@@ -50,7 +50,7 @@ export const CountrySelect: FC<Props> = memo(
         return (
             <Select
                 className={cn('', {}, [className])}
-                label={t('Валюта')}
+                label={t('Страна')}
                 options={options}
                 onChange={onChangeHandler}
                 value={value}

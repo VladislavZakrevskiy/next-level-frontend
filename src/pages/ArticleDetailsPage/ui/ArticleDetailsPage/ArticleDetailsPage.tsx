@@ -1,20 +1,34 @@
-import { cn } from 'shared/lib/classNames';
-import { FC, memo } from 'react';
+import { cn } from 'shared/lib/classNames'
+import { FC, memo } from 'react'
 import classes from './ArticleDetailsPage.module.scss'
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next'
+import { ArticleDetails } from 'entities/Article'
+import { useParams } from 'react-router-dom'
 
 interface Props {
     className?: string
 }
 
-const ArticleDetailsPage: FC<Props> = ({className}) => {
-    const {t} = useTranslation('acticle')
-    
+const ArticleDetailsPage: FC<Props> = ({ className }) => {
+    const { t } = useTranslation('acticle')
+    const { id } = useParams<{ id: string }>()
+
+    if (!id) {
+        return <div
+        className={cn(classes.ArticleDetailsPage, {}, [
+            className,
+        ])}
+    >
+        {t("Статья не найдена")}
+    </div>
+    }
     return (
         <div
-            className={cn(classes.ArticleDetailsPage, {}, [className])}
+            className={cn(classes.ArticleDetailsPage, {}, [
+                className,
+            ])}
         >
-            ARTICLES DETAILS
+            <ArticleDetails id={id} />
         </div>
     )
 }

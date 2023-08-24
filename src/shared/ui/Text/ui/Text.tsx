@@ -10,7 +10,12 @@ export enum TextTheme {
 export enum TextAlign {
     RIGHT = 'right',
     LEFT = 'left',
-    CENTER = 'center'
+    CENTER = 'center',
+}
+
+export enum TextSize {
+    M = 'size_m',
+    L = 'size_l',
 }
 
 interface Props {
@@ -19,6 +24,7 @@ interface Props {
     title?: string
     theme?: TextTheme
     align?: TextAlign
+    size?: TextSize
 }
 
 export const Text: FC<Props> = memo(
@@ -27,7 +33,8 @@ export const Text: FC<Props> = memo(
         text,
         title,
         theme = TextTheme.PRIMARY,
-        align = TextAlign.LEFT
+        align = TextAlign.LEFT,
+        size = TextSize.M,
     }) => {
         // classes.Text
         return (
@@ -35,7 +42,8 @@ export const Text: FC<Props> = memo(
                 className={cn('', {}, [
                     className,
                     classes[theme],
-                    classes[align]
+                    classes[align],
+                    classes[size],
                 ])}
             >
                 {title && (
