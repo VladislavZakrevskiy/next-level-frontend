@@ -1,5 +1,5 @@
 import { cn } from 'shared/lib/classNames'
-import { FC, memo } from 'react'
+import { FC, memo, useCallback } from 'react'
 import classes from './ArticleDetailsPage.module.scss'
 import { useTranslation } from 'react-i18next'
 import { ArticleDetails } from 'entities/Article'
@@ -22,6 +22,9 @@ import {
 import { useInitialEffect } from 'shared/lib/hooks/UseInitialEffect/UseInitialEffect'
 import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { LazyAddCommentForm } from 'features/addCommentForm'
+import { sendComment } from 'features/addCommentForm/model/services/sendComment/sendComment'
+import { getCommentFormText } from 'features/addCommentForm/model/selectors/getFormComment'
 
 interface Props {
     className?: string
@@ -42,6 +45,10 @@ const ArticleDetailsPage: FC<Props> = ({ className }) => {
         getArticleCommentsIsLoading
     )
     const error = useSelector(getArticleCommentsError)
+
+    const onSendComment = useCallback((text: string) => {
+        dispatch(sendComment(text))
+    }, [])
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id))
@@ -77,7 +84,13 @@ const ArticleDetailsPage: FC<Props> = ({ className }) => {
                     className={classes.commentTitle}
                     title={t('Комментарии')}
                 />
-                <CommentList isLoading={isLoading} comments={comments} />
+                <LazyAddCommentForm
+                    onSendComment={onSendComment}
+                />
+                <CommentList
+                    isLoading={isLoading}
+                    comments={comments}
+                />
             </div>
         </DynamicModuleLoader>
     )

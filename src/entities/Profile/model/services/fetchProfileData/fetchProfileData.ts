@@ -4,17 +4,17 @@ import { ThunkConfig } from 'app/providers/StoreProvider'
 
 export const fetchProfileData = createAsyncThunk<
     Profile,
-    void,
+    string | undefined,
     ThunkConfig<string>
 >(
     'profile/fetchProfileData',
     async (
-        _,
+        profileId,
         { rejectWithValue, dispatch, extra: { api } }
     ) => {
         try {
             const response = await api.get<Profile>(
-                '/profile'
+                '/profile/' + profileId
             )
 
             if (!response.data) {

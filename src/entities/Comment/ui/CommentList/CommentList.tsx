@@ -18,6 +18,25 @@ export const CommentList: FC<Props> = ({
 }) => {
     const { t } = useTranslation()
 
+    if (isLoading) {
+        return (
+            <div className={cn('', {}, [className])}>
+                <CommentCard
+                    isLoading
+                    className={classes.comment}
+                />
+                <CommentCard
+                    isLoading
+                    className={classes.comment}
+                />
+                <CommentCard
+                    isLoading
+                    className={classes.comment}
+                />
+            </div>
+        )
+    }
+
     return (
         <div className={cn('', {}, [className])}>
             {comments?.length ? (
