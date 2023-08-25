@@ -46,7 +46,7 @@ export const Navbar: FC<NavbarProps> = memo(
         }
 
         return (
-            <div
+            <header
                 className={cn(classes.navbar, {}, [
                     className,
                 ])}
@@ -64,7 +64,7 @@ export const Navbar: FC<NavbarProps> = memo(
                         onClose={onToggleModal}
                     />
                 )}
-            </div>
+            </header>
         )
     }
 )

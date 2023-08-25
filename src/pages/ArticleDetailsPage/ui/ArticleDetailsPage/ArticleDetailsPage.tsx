@@ -19,7 +19,7 @@ import {
     getArticleCommentsError,
     getArticleCommentsIsLoading,
 } from 'pages/ArticleDetailsPage/model/selectors/comments'
-import { useInitialEffect } from 'shared/lib/hooks/UseInitialEffect/UseInitialEffect'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/UseInitialEffect'
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { LazyAddCommentForm } from 'features/addCommentForm'
@@ -27,6 +27,7 @@ import { sendComment } from 'features/addCommentForm/model/services/sendComment/
 import { getCommentFormText } from 'features/addCommentForm/model/selectors/getFormComment'
 import { Button } from 'shared/ui/Button'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { Page } from 'shared/ui/Page'
 
 interface Props {
     className?: string
@@ -63,7 +64,7 @@ const ArticleDetailsPage: FC<Props> = ({ className }) => {
 
     if (!id) {
         return (
-            <div
+            <Page
                 className={cn(
                     classes.ArticleDetailsPage,
                     {},
@@ -71,7 +72,7 @@ const ArticleDetailsPage: FC<Props> = ({ className }) => {
                 )}
             >
                 {t('Статья не найдена')}
-            </div>
+            </Page>
         )
     }
     return (
@@ -79,7 +80,7 @@ const ArticleDetailsPage: FC<Props> = ({ className }) => {
             reducers={reducers}
             removeAfterUnmount
         >
-            <div
+            <Page
                 className={cn(
                     classes.ArticleDetailsPage,
                     {},
@@ -99,7 +100,7 @@ const ArticleDetailsPage: FC<Props> = ({ className }) => {
                     isLoading={isLoading}
                     comments={comments}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     )
 }

@@ -37,7 +37,7 @@ export const Sidebar: FC<Props> = memo(({ className }) => {
     )
 
     return (
-        <div
+        <menu
             data-testid="TEST"
             className={cn(
                 classes.Sidebar,
@@ -59,6 +59,6 @@ export const Sidebar: FC<Props> = memo(({ className }) => {
                 <ThemeSwitcher />
                 <LanguageSwitcher short={collapsed} />
             </div>
-        </div>
+        </menu>
     )
 })
