@@ -1,0 +1,113 @@
+.ArticleListItem {
+    bottom: 0;
+}
+
+.SMALL {
+    width: 230px;
+
+    .date {
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: none;
+    }
+
+    &:hover {
+        opacity: 0.8;
+        transform: scale(1.01);
+        transition: 200ms;
+        cursor: pointer;
+
+        .date {
+            display: block;
+        }
+    }
+
+    .imageWrapper {
+        width: 200px;
+        height: 200px;
+        position: relative;
+    }
+
+    .img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .infoWrapper {
+        display: flex;
+        margin-top: 8px;
+        align-items: center;
+    }
+
+    .types p {
+        width: 115px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .views {
+        margin-left: auto;
+        margin-right: 8px;
+    }
+    .title {
+        margin-top: 8px;
+    }
+
+    .title p {
+        width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.BIG {
+    .header {
+        display: flex;
+        align-items: center;
+    }
+
+    .username {
+        margin-left: 8px;
+    }
+
+    .date {
+        margin-left: auto;
+    }
+
+    .title {
+        margin-top: 8px;
+    }
+
+    .types p {
+        width: 115px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .img {
+        width: 100%;
+        min-height: 250px;
+        object-fit: cover;
+        margin: 16px;
+    }
+
+    .footer {
+        display: flex;
+        align-items: center;
+    }
+
+    .views {
+        margin-left: auto;
+    }
+
+    .textBlock {
+        min-height: 200px;
+        overflow-y: hidden;
+        text-overflow: ellipsis;
+    }
+}

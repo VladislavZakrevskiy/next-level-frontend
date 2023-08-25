@@ -2,6 +2,8 @@ import { cn } from 'shared/lib/classNames'
 import { FC, memo } from 'react'
 import classes from './ArticlesPage.module.scss'
 import { useTranslation } from 'react-i18next'
+import { ArticleList } from '../../../../entities/Article/ui/ArticleList/ArticleList';
+import { Article, ArticleView } from 'entities/Article';
 
 interface Props {
     className?: string
@@ -9,6 +11,8 @@ interface Props {
 
 const ArticlesPage: FC<Props> = ({ className }) => {
     const { t } = useTranslation('article')
+    const articles: Article[] = []
+    const view: ArticleView = ArticleView.SMALL
 
     return (
         <div
@@ -16,7 +20,7 @@ const ArticlesPage: FC<Props> = ({ className }) => {
                 className,
             ])}
         >
-            ARTICLES PAGE
+            <ArticleList view={view} articles={articles}/>
         </div>
     )
 }

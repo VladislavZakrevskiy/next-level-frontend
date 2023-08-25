@@ -3,7 +3,7 @@ import { FC, memo, useCallback } from 'react'
 import classes from './ArticleDetailsPage.module.scss'
 import { useTranslation } from 'react-i18next'
 import { ArticleDetails } from 'entities/Article'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Text } from 'shared/ui/Text'
 import { CommentList } from 'entities/Comment'
 import {
@@ -20,11 +20,13 @@ import {
     getArticleCommentsIsLoading,
 } from 'pages/ArticleDetailsPage/model/selectors/comments'
 import { useInitialEffect } from 'shared/lib/hooks/UseInitialEffect/UseInitialEffect'
-import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { LazyAddCommentForm } from 'features/addCommentForm'
 import { sendComment } from 'features/addCommentForm/model/services/sendComment/sendComment'
 import { getCommentFormText } from 'features/addCommentForm/model/selectors/getFormComment'
+import { Button } from 'shared/ui/Button'
+import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 
 interface Props {
     className?: string
@@ -38,6 +40,7 @@ const ArticleDetailsPage: FC<Props> = ({ className }) => {
     const { t } = useTranslation('acticle')
     const { id } = useParams<{ id: string }>()
     const dispatch = useAppDispatch()
+    const nav = useNavigate()
     const comments = useSelector(
         getArticleComments.selectAll
     )
@@ -53,6 +56,10 @@ const ArticleDetailsPage: FC<Props> = ({ className }) => {
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id))
     })
+
+    const onBackToList = useCallback(() => {
+        nav(RoutePath.acticles)
+    }, [nav])
 
     if (!id) {
         return (
@@ -79,6 +86,7 @@ const ArticleDetailsPage: FC<Props> = ({ className }) => {
                     [className]
                 )}
             >
+                <Button onClick={onBackToList}>{t('Назад к списку')}</Button>
                 <ArticleDetails id={id} />
                 <Text
                     className={classes.commentTitle}
