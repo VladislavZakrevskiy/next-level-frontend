@@ -6,8 +6,9 @@ import { LanguageSwitcher } from 'widgets/LanguageSwitcher'
 import { Button, ThemeButton } from 'shared/ui/Button'
 import { SizeButton } from 'shared/ui/Button'
 import { useTranslation } from 'react-i18next'
-import { SidebarItemList } from 'widgets/Sidebar/model/items'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
+import { useSelector } from 'react-redux'
+import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems'
 
 interface Props {
     className?: string
@@ -15,7 +16,7 @@ interface Props {
 
 export const Sidebar: FC<Props> = memo(({ className }) => {
     const { t } = useTranslation()
-
+    const SidebarItemList = useSelector(getSidebarItems)
     const [collapsed, setCollapsed] =
         useState<boolean>(false)
 
