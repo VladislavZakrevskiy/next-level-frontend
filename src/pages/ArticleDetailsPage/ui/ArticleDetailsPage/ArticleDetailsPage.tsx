@@ -27,7 +27,7 @@ import { sendComment } from 'features/addCommentForm/model/services/sendComment/
 import { getCommentFormText } from 'features/addCommentForm/model/selectors/getFormComment'
 import { Button } from 'shared/ui/Button'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
-import { Page } from 'shared/ui/Page'
+import { Page } from 'widgets/Page';
 
 interface Props {
     className?: string

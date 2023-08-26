@@ -23,7 +23,7 @@ import { Country } from 'entities/Country'
 import { Text, TextTheme } from 'shared/ui/Text'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/UseInitialEffect'
 import { useParams } from 'react-router-dom'
-import { Page } from 'shared/ui/Page'
+import { Page } from 'widgets/Page';
 
 const initialReducers: ReducerList = {
     profile: ProfileReducer,

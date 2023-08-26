@@ -10,6 +10,7 @@ import { ArticleDetailsSchema } from 'entities/Article'
 import { ProfileSchema } from 'entities/Profile'
 import { UserSchema } from 'entities/User'
 import { LoginSchema } from 'features/AuthByUsername/model/types/loginSchema'
+import { UISchema } from 'features/UI'
 import { addCommentFormSchema } from 'features/addCommentForm'
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage'
 import { ArticlePageSchema } from 'pages/ArticlesPage'
@@ -17,6 +18,7 @@ import { NavigateOptions, To } from 'react-router-dom'
 
 export interface StateSchema {
     user: UserSchema
+    ui: UISchema
 
     // Async reducers
     login?: LoginSchema

@@ -33,7 +33,7 @@ const addCommentForm: FC<Props> = ({
     onSendComment,
 }) => {
     const { t } = useTranslation()
-    const text = useSelector(getCommentFormText)
+    const text = useSelector(getCommentFormText) ?? ''
     const error = useSelector(getCommentFormError)
     const dispatch = useAppDispatch()
 

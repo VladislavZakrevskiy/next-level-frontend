@@ -21,7 +21,7 @@ import {
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/UseInitialEffect'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { ArticleViewSelector } from 'features/ArticleViewSelector'
-import { Page } from 'shared/ui/Page'
+import { Page } from 'widgets/Page';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage'
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
 
