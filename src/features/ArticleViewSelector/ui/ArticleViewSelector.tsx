@@ -39,6 +39,7 @@ export const ArticleViewSelector: FC<Props> = memo(
             >
                 {viewTypes.map((viewType) => (
                     <Button
+                        key={viewType.view}
                         onClick={onClick(viewType.view)}
                         theme={ThemeButton.CLEAR}
                     >

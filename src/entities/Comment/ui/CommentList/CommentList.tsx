@@ -45,6 +45,7 @@ export const CommentList: FC<Props> = ({
                         isLoading={isLoading}
                         className={classes.comment}
                         comment={comment}
+                        key={comment.id}
                     />
                 ))
             ) : (

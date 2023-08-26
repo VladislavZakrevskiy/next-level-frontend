@@ -30,6 +30,7 @@ const articlePageSlice = createSlice({
                 view: ArticleView.SMALL,
                 hasMore: true,
                 page: 1,
+                _inited: false
             }
         ),
     reducers: {
