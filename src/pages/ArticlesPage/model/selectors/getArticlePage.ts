@@ -1,4 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider'
+import { ArticleType } from 'entities/Article'
 
 export const getArticlePageView = (state: StateSchema) =>
     state.articlePage?.view
@@ -21,3 +22,15 @@ export const getArticlePageHasMore = (state: StateSchema) =>
 
 export const getArticlePageInited = (state: StateSchema) =>
     state.articlePage?._inited
+
+    export const getArticlePageSort = (state: StateSchema) =>
+    state.articlePage?.sort
+    
+    export const getArticlePageOrder = (state: StateSchema) =>
+    state.articlePage?.order
+
+    export const getArticlePageSearch = (state: StateSchema) =>
+    state.articlePage?.search
+
+    export const getArticlePageType = (state: StateSchema) =>
+    state.articlePage?.type || ArticleType.ALL

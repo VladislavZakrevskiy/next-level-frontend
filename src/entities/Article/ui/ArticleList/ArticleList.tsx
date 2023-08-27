@@ -17,7 +17,7 @@ interface Props {
 
 const getSkeleton = (view: ArticleView) => {
     return new Array(view === ArticleView.SMALL ? 9 : 3)
-        .fill('')
+        .fill(0)
         .map((item, i) => (
             <ArticleListItemSkeleton
                 view={view}
@@ -54,8 +54,10 @@ export const ArticleList: FC<Props> = ({
                 classes[view],
             ])}
         >
-            {articles.length && articles.map(renderArticle)}
-            {isLoading && getSkeleton(view)}
+            {articles.length
+                ? articles.map(renderArticle)
+                : null}
+            {isLoading ? getSkeleton(view) : null}
         </div>
     )
 }
