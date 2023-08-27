@@ -1,5 +1,9 @@
 import { cn } from 'shared/lib/classNames'
-import { FC, useCallback } from 'react'
+import {
+    FC,
+    HTMLAttributeAnchorTarget,
+    useCallback,
+} from 'react'
 import classes from './ArticleListItem.module.scss'
 import {
     Article,
@@ -20,22 +24,22 @@ import { useNavigate } from 'react-router-dom'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import { useSelector } from 'react-redux'
 import { getArticlePageView } from 'pages/ArticlesPage/model/selectors/getArticlePage'
+import { AppLink } from 'shared/ui/AppLink'
 
 interface Props {
     className?: string
     article: Article
-    // view: ArticleView
+    view: ArticleView
+    target?: HTMLAttributeAnchorTarget
 }
 
 export const ArticleListItem: FC<Props> = ({
     className,
     article,
-    // view,
+    view,
+    target = '_blank',
 }) => {
     const { t } = useTranslation('article')
-    const view: ArticleView =
-        useSelector(getArticlePageView) || ArticleView.SMALL
-    const nav = useNavigate()
     const types = (
         <Text
             text={article.type.join(', ')}
@@ -52,40 +56,39 @@ export const ArticleListItem: FC<Props> = ({
         </>
     )
 
-    const onItemClick = useCallback(() => {
-        nav(RoutePath.article_details + article.id)
-    }, [])
-
     if (view === ArticleView.SMALL) {
         return (
-            <Card
-                onClick={onItemClick}
+            <AppLink
+                to={RoutePath.article_details + article.id}
+                target={target}
                 className={cn('', {}, [
                     className,
                     classes[view],
                 ])}
             >
-                <div className={classes.imageWrapper}>
-                    <img
-                        src={article.img}
-                        alt={article.title}
-                        className={classes.img}
-                    />
+                <Card>
+                    <div className={classes.imageWrapper}>
+                        <img
+                            src={article.img}
+                            alt={article.title}
+                            className={classes.img}
+                        />
 
+                        <Text
+                            text={article.createdAt}
+                            className={classes.date}
+                        />
+                    </div>
+                    <div className={classes.infoWrapper}>
+                        {types}
+                        {views}
+                    </div>
                     <Text
-                        text={article.createdAt}
-                        className={classes.date}
+                        text={article.title}
+                        className={classes.title}
                     />
-                </div>
-                <div className={classes.infoWrapper}>
-                    {types}
-                    {views}
-                </div>
-                <Text
-                    text={article.title}
-                    className={classes.title}
-                />
-            </Card>
+                </Card>
+            </AppLink>
         )
     }
 
@@ -131,9 +134,17 @@ export const ArticleListItem: FC<Props> = ({
                     />
                 )}
                 <footer className={classes.footer}>
-                    <Button onClick={onItemClick}>
-                        {t('Читать далее...')}
-                    </Button>
+                    <AppLink
+                        target={target}
+                        to={
+                            RoutePath.article_details +
+                            article.id
+                        }
+                    >
+                        <Button>
+                            {t('Читать далее...')}
+                        </Button>
+                    </AppLink>
                     {views}
                 </footer>
             </Card>

@@ -40,11 +40,11 @@ export const ArticleList: FC<Props> = ({
                     key={article.id}
                     className={classes.card}
                     article={article}
-                    // view={view}
+                    view={view}
                 />
             )
         },
-        []
+        [view]
     )
 
     return (
