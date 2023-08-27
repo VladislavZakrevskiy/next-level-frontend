@@ -4,7 +4,8 @@ import classes from './ArticleViewSelector.module.scss'
 import { ArticleView } from 'entities/Article'
 import { Button, ThemeButton } from 'shared/ui/Button'
 import { Icon } from 'shared/ui/Icon'
-import RandomIcon from 'shared/assets/icons/about-20-20.svg'
+import ListIcon from 'shared/assets/icons/list-24-24.svg'
+import TiledIcon from 'shared/assets/icons/tiled-24-24.svg'
 
 interface Props {
     className?: string
@@ -15,9 +16,9 @@ interface Props {
 const viewTypes = [
     {
         view: ArticleView.SMALL,
-        Icon: RandomIcon,
+        Icon: TiledIcon,
     },
-    { view: ArticleView.BIG, Icon: RandomIcon },
+    { view: ArticleView.BIG, Icon: ListIcon },
 ]
 
 export const ArticleViewSelector: FC<Props> = memo(
@@ -30,13 +31,7 @@ export const ArticleViewSelector: FC<Props> = memo(
         )
 
         return (
-            <div
-                className={cn(
-                    '',
-                    {},
-                    [className]
-                )}
-            >
+            <div className={cn('', {}, [className])}>
                 {viewTypes.map((viewType) => (
                     <Button
                         key={viewType.view}
@@ -45,8 +40,8 @@ export const ArticleViewSelector: FC<Props> = memo(
                     >
                         <Icon
                             className={cn('', {
-                                [classes.selected]:
-                                    view === viewType.view,
+                                [classes.notSelected]:
+                                    view !== viewType.view,
                             })}
                             Svg={viewType.Icon}
                         />

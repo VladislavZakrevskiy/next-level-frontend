@@ -132,7 +132,7 @@ export const ArticleDetails: FC<Props> = memo(
                     <div className={classes.avatarWrapper}>
                         <Avatar
                             size={200}
-                            src={data?.img}
+                            src={data?.img || ''}
                             alt={t('Профиль')}
                             className={classes.avatar}
                         />

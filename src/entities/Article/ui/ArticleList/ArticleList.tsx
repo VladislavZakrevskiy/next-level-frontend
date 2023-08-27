@@ -17,7 +17,7 @@ interface Props {
 
 const getSkeleton = (view: ArticleView) => {
     return new Array(view === ArticleView.SMALL ? 9 : 3)
-        .fill(0)
+        .fill('')
         .map((item, i) => (
             <ArticleListItemSkeleton
                 view={view}
@@ -29,7 +29,7 @@ const getSkeleton = (view: ArticleView) => {
 
 export const ArticleList: FC<Props> = ({
     className,
-    view = ArticleView.SMALL,
+    view,
     articles,
     isLoading,
 }) => {
@@ -40,7 +40,7 @@ export const ArticleList: FC<Props> = ({
                     key={article.id}
                     className={classes.card}
                     article={article}
-                    view={view}
+                    // view={view}
                 />
             )
         },

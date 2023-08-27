@@ -52,7 +52,7 @@ export const CommentCard: FC<Props> = ({
             ])}
         >
             <AppLink
-                to={RoutePath.profile + comment.id}
+                to={RoutePath.profile + comment.user.id}
                 className={classes.header}
             >
                 {comment.user.avatar && (

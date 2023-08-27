@@ -32,7 +32,7 @@ export const DynamicModuleLoader: FC<Props> = ({
             ([name, reducer]) => {
                 const mounted =
                     mountedReducers[name as StateSchemaKey]
-                if (mounted) {
+                if (!mounted) {
                     store.reducerManager.add(
                         name as StateSchemaKey,
                         reducer

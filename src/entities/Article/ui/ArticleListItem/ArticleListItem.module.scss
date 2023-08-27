@@ -1,6 +1,4 @@
-.ArticleListItem {
-    bottom: 0;
-}
+
 
 .SMALL {
     width: 230px;
@@ -32,7 +30,6 @@
     .img {
         width: 200px;
         height: 200px;
-        object-fit: cover;
     }
 
     .infoWrapper {
@@ -65,9 +62,12 @@
 }
 
 .BIG {
+    width: 100%;
+
     .header {
         display: flex;
         align-items: center;
+        margin-bottom: 10px;
     }
 
     .username {
@@ -92,6 +92,8 @@
     .img {
         width: 100%;
         min-height: 250px;
+        max-height: 250px;
+        height: 250px;
         object-fit: cover;
         margin: 16px;
     }
@@ -99,6 +101,7 @@
     .footer {
         display: flex;
         align-items: center;
+        margin-top: 10px;
     }
 
     .views {
@@ -106,8 +109,8 @@
     }
 
     .textBlock {
-        min-height: 200px;
-        overflow-y: hidden;
+        max-height: 195px;
+        overflow: hidden;
         text-overflow: ellipsis;
     }
 }

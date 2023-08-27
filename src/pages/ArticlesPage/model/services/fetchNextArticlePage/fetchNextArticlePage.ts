@@ -7,6 +7,7 @@ import {
     getArticlePageNumber,
 } from '../../selectors/getArticlePage'
 import { fetchArticleList } from '../fetchArticleList/fetchArticleList'
+import { ArticlePageActions } from '../../slice/articlePageSlice'
 
 export const fetchNextArticlePage = createAsyncThunk<
     void,
@@ -30,11 +31,7 @@ export const fetchNextArticlePage = createAsyncThunk<
         )
 
         if (hasMore && !isLoading) {
-            dispatch(
-                fetchArticleList({
-                    page: page + 1,
-                })
-            )
+            dispatch(ArticlePageActions.setPage(page + 1))
             dispatch(
                 fetchArticleList({
                     page: page + 1,

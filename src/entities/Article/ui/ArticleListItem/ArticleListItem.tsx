@@ -18,20 +18,23 @@ import { useTranslation } from 'react-i18next'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { useNavigate } from 'react-router-dom'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { useSelector } from 'react-redux'
+import { getArticlePageView } from 'pages/ArticlesPage/model/selectors/getArticlePage'
 
 interface Props {
     className?: string
     article: Article
-    view: ArticleView
+    // view: ArticleView
 }
 
 export const ArticleListItem: FC<Props> = ({
     className,
     article,
-    view,
+    // view,
 }) => {
-    const [isHover, bindHover] = useHover()
     const { t } = useTranslation('article')
+    const view: ArticleView =
+        useSelector(getArticlePageView) || ArticleView.SMALL
     const nav = useNavigate()
     const types = (
         <Text
@@ -55,52 +58,50 @@ export const ArticleListItem: FC<Props> = ({
 
     if (view === ArticleView.SMALL) {
         return (
-            <div
-                {...bindHover}
-                className={cn(classes.ArticleListItem, {}, [
+            <Card
+                onClick={onItemClick}
+                className={cn('', {}, [
                     className,
                     classes[view],
                 ])}
             >
-                <Card onClick={onItemClick}>
-                    <div className={classes.imageWrapper}>
-                        <Avatar
-                            src={article.img}
-                            alt={article.title}
-                            className={classes.img}
-                        />
-                        {isHover && (
-                            <Text
-                                text={article.createdAt}
-                                className={classes.date}
-                            />
-                        )}
-                    </div>
-                    <div className={classes.infoWrapper}>
-                        {types}
-                        {views}
-                    </div>
-                    <Text
-                        text={article.title}
-                        className={classes.title}
+                <div className={classes.imageWrapper}>
+                    <img
+                        src={article.img}
+                        alt={article.title}
+                        className={classes.img}
                     />
-                </Card>
-            </div>
+
+                    <Text
+                        text={article.createdAt}
+                        className={classes.date}
+                    />
+                </div>
+                <div className={classes.infoWrapper}>
+                    {types}
+                    {views}
+                </div>
+                <Text
+                    text={article.title}
+                    className={classes.title}
+                />
+            </Card>
         )
     }
 
-    const firstTextBlock = article.blocks.find(
-        (block) => block.type === ArticleBlockType.TEXT
-    ) as ArticleTextBlock
+    if (view === ArticleView.BIG) {
+        console.log(view)
+        const firstTextBlock = article.blocks.find(
+            (block) => block.type === ArticleBlockType.TEXT
+        ) as ArticleTextBlock
 
-    return (
-        <div
-            className={cn(classes.ArticleListItem, {}, [
-                className,
-                classes[view],
-            ])}
-        >
-            <Card>
+        return (
+            <Card
+                className={cn('', {}, [
+                    className,
+                    classes[view],
+                ])}
+            >
                 <header className={classes.header}>
                     <Avatar
                         src={article.user.avatar || ''}
@@ -117,26 +118,27 @@ export const ArticleListItem: FC<Props> = ({
                     />
                 </header>
                 <Text title={article.title} />
-                <Text
-                    text={article.type.join(', ')}
-                    className={classes.types}
-                />
                 {types}
-                <Avatar
+                <img
                     src={article.img}
                     alt={article.title}
                     className={classes.img}
                 />
                 {firstTextBlock && (
-                    <ArticleTextBlockComponent className={classes.textBlock}
+                    <ArticleTextBlockComponent
+                        className={classes.textBlock}
                         block={firstTextBlock}
                     />
                 )}
                 <footer className={classes.footer}>
-                    <Button onClick={onItemClick}>{t('Читать далее...')}</Button>
+                    <Button onClick={onItemClick}>
+                        {t('Читать далее...')}
+                    </Button>
                     {views}
                 </footer>
             </Card>
-        </div>
-    )
+        )
+    }
+
+    return null
 }
