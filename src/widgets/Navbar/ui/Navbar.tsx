@@ -6,6 +6,12 @@ import { Button, ThemeButton } from 'shared/ui/Button'
 import { LoginModal } from 'features/AuthByUsername'
 import { useDispatch, useSelector } from 'react-redux'
 import { UserActions, getUserAuthData } from 'entities/User'
+import { Text, TextTheme } from 'shared/ui/Text'
+import {
+    AppLink,
+    AppLinkTheme,
+} from '../../../shared/ui/AppLink/AppLink'
+import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 
 interface NavbarProps {
     className?: string
@@ -34,6 +40,18 @@ export const Navbar: FC<NavbarProps> = memo(
                         className,
                     ])}
                 >
+                    <Text
+                        className={classes.title}
+                        title="Zakrevskiy App"
+                        theme={TextTheme.INVERTED}
+                    />
+                    <AppLink
+                        to={RoutePath.article_create}
+                        theme={AppLinkTheme.SECONDARY}
+                        // className={classes.createBtn}
+                    >
+                        {t('Создать статью')}
+                    </AppLink>
                     <Button
                         theme={ThemeButton.OUTLINE}
                         className={classes.links}

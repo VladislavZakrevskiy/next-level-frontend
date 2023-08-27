@@ -4,6 +4,7 @@ import classes from './Text.module.scss'
 
 export enum TextTheme {
     PRIMARY = 'primary',
+    INVERTED = 'inverted',
     ERROR = 'error',
 }
 

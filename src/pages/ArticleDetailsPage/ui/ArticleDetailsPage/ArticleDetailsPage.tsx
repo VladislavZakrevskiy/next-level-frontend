@@ -41,6 +41,7 @@ import {
     getArticleDetailsRecommendedIsLoading,
 } from '../../model/selectors/recommended'
 import { fetchRecommendations } from '../../model/services/fetchRecomendations/fetchRecomendations'
+import { ArticleDetailsHeader } from '../ArticleDetailsHeader/ArticleDetailsHeader.module.scss'
 
 interface Props {
     className?: string
@@ -56,7 +57,7 @@ const ArticleDetailsPage: FC<Props> = ({ className }) => {
     const { t } = useTranslation('acticle')
     const { id } = useParams<{ id: string }>()
     const dispatch = useAppDispatch()
-    const nav = useNavigate()
+
     const comments = useSelector(
         getArticleComments.selectAll
     )
@@ -83,10 +84,6 @@ const ArticleDetailsPage: FC<Props> = ({ className }) => {
         dispatch(fetchRecommendations())
     })
 
-    const onBackToList = useCallback(() => {
-        nav(RoutePath.acticles)
-    }, [nav])
-
     if (!id) {
         return (
             <Page
@@ -112,9 +109,7 @@ const ArticleDetailsPage: FC<Props> = ({ className }) => {
                     [className]
                 )}
             >
-                <Button onClick={onBackToList}>
-                    {t('Назад к списку')}
-                </Button>
+                <ArticleDetailsHeader/>
                 <ArticleDetails id={id} />
                 <Text
                     size={TextSize.L}
