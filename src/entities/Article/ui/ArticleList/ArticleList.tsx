@@ -7,6 +7,13 @@ import {
 } from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
+// import {
+//     AutoSizer,
+//     List,
+//     ListRowProps,
+//     WindowScroller,
+// } from 'react-virtualized'
+// import { PAGE_ID } from 'widgets/Page/ui/Page'
 
 interface Props {
     className?: string
@@ -33,6 +40,36 @@ export const ArticleList: FC<Props> = ({
     articles,
     isLoading,
 }) => {
+    // const isBig = view === ArticleView.BIG
+
+    // const itemsPerRow = isBig ? 1 : 3
+    // const rowCount = Math.ceil(
+    //     articles.length / itemsPerRow
+    // )
+
+    // const renderRow = ({ index }: ListRowProps) => {
+    //     const items = []
+    //     const fromIndex = index * itemsPerRow
+    //     const toIndex = Math.min(
+    //         fromIndex + itemsPerRow,
+    //         articles.length
+    //     )
+
+    //     for (let i = fromIndex; i < toIndex; i++) {
+    //         items.push(
+    //             <ArticleListItem
+    //                 article={articles[i]}
+    //                 view={view}
+    //                 className={classes.card}
+    //                 target="_blank"
+    //                 key={articles[i].id}
+    //             />
+    //         )
+    //     }
+
+    //     return <div className={classes.row}>{items}</div>
+    // }
+
     const renderArticle = useCallback(
         (article: Article) => {
             return (
@@ -59,5 +96,40 @@ export const ArticleList: FC<Props> = ({
                 : null}
             {isLoading ? getSkeleton(view) : null}
         </div>
+        // <WindowScroller
+        //     scrollElement={
+        //         document.getElementById(PAGE_ID) as Element
+        //     }
+        // >
+        //     {({
+        //         height,
+        //         width,
+        //         registerChild,
+        //         scrollTop,
+        //         isScrolling,
+        //         onChildScroll,
+        //     }) => (
+        //         <div
+        //             ref={registerChild}
+        //             className={cn('', {}, [
+        //                 className,
+        //                 classes[view],
+        //             ])}
+        //         >
+        //             <List
+        //                 rowHeight={isBig ? 700 : 330}
+        //                 autoHeight
+        //                 rowCount={rowCount}
+        //                 rowRenderer={renderRow}
+        //                 height={height ?? 700}
+        //                 width={width ? width - 80 : 700}
+        //                 onScroll={onChildScroll}
+        //                 isScrolling={isScrolling}
+        //                 scrollTop={scrollTop}
+        //             />
+        //             {isLoading ? getSkeleton(view) : null}
+        //         </div>
+        //     )}
+        // </WindowScroller>
     )
 }
