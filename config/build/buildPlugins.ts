@@ -4,12 +4,13 @@ import webpack from 'webpack'
 import { type BuildOptions } from './types/config'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+import CopyPlugin from 'copy-webpack-plugin'
 
 export const buildPlugins = ({
-    paths: { html },
+    paths: { html, locales, buildLocales },
     isDev,
     apiUrl,
-    project
+    project,
 }: BuildOptions): webpack.WebpackPluginInstance[] => {
     const plugins = [
         new HTMLWebpackPlugin({
@@ -23,7 +24,10 @@ export const buildPlugins = ({
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
-            __PROJECT__: JSON.stringify(project)
+            __PROJECT__: JSON.stringify(project),
+        }),
+        new CopyPlugin({
+            patterns: [{ from: locales, to: buildLocales }],
         }),
     ]
 
