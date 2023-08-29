@@ -3,7 +3,7 @@ module.exports = {
         browser: true,
         es2021: true,
     },
-    extends: ['airbnb', 'plugin:react/recommended'],
+    extends: ['airbnb', 'plugin:react/recommended', 'eslint-plugin-vlad-path-checker-plugin'],
     overrides: [
         {
             env: {
@@ -42,5 +42,6 @@ module.exports = {
         'prefer-nullish-coalescing': 'off',
         'comma-dangle': 'off',
         'import/extensions': 'off',
+        'eslint-plugin-vlad-path-checker-plugin/path-checker': 'error'
     },
 }
