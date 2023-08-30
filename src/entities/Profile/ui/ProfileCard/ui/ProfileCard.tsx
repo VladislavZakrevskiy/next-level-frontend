@@ -10,6 +10,7 @@ import { Avatar } from 'shared/ui/Avatar'
 import { Select } from 'shared/ui/Select'
 import { Currency, CurrencySelect } from 'entities/Currency'
 import { Country, CountrySelect } from 'entities/Country'
+import { HStack, VStack } from 'shared/ui/Stack'
 
 interface Props {
     className?: string
@@ -46,20 +47,22 @@ export const ProfileCard: FC<Props> = ({
 
     if (isLoading) {
         return (
-            <div
+            <HStack
+                justify="center"
                 className={cn(classes.ProfileCard, {}, [
                     className,
                     classes.loading,
                 ])}
             >
                 <Loader />
-            </div>
+            </HStack>
         )
     }
 
     if (error) {
         return (
-            <div
+            <HStack
+                justify="center"
                 className={cn(classes.ProfileCard, {}, [
                     className,
                     classes.error,
@@ -73,7 +76,7 @@ export const ProfileCard: FC<Props> = ({
                     text={t('Попробуйте обновить страницу')}
                     align={TextAlign.CENTER}
                 />
-            </div>
+            </HStack>
         )
     }
 
@@ -82,18 +85,20 @@ export const ProfileCard: FC<Props> = ({
     }
 
     return (
-        <div
+        <VStack
+            gap="8"
+            max
             className={cn(classes.ProfileCard, mods, [
                 className,
             ])}
         >
             {data?.avatar && (
-                <div className={classes.avatarWrapper}>
+                <HStack justify="center" max>
                     <Avatar
                         src={data?.avatar}
                         alt="Avatar"
                     />
-                </div>
+                </HStack>
             )}
             <Input
                 value={data?.first}
@@ -141,6 +146,6 @@ export const ProfileCard: FC<Props> = ({
                 onChange={onChangeCountry}
                 readOnly={readonly}
             />
-        </div>
+        </VStack>
     )
 }

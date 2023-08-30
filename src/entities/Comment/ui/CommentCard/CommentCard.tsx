@@ -7,6 +7,7 @@ import { Text } from 'shared/ui/Text'
 import { Skeleton } from 'shared/ui/Skeleton'
 import { AppLink } from 'shared/ui/AppLink'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { VStack } from 'shared/ui/Stack'
 
 interface Props {
     className?: string
@@ -35,7 +36,6 @@ export const CommentCard: FC<Props> = ({
                     <Skeleton width={16} height={100} />
                 </div>
                 <Skeleton
-                    className={classes.text}
                     width={'100%'}
                     height={50}
                 />
@@ -46,7 +46,7 @@ export const CommentCard: FC<Props> = ({
     if(!comment) return null
 
     return (
-        <div
+        <VStack max gap='8'
             className={cn(classes.CommentCard, {}, [
                 className,
             ])}
@@ -65,9 +65,8 @@ export const CommentCard: FC<Props> = ({
                 <Text title={comment.user.username} />
             </AppLink>
             <Text
-                className={classes.text}
                 text={comment.text}
             />
-        </div>
+        </VStack>
     )
 }

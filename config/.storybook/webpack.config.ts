@@ -14,6 +14,8 @@ export default ({
         entry: '',
         html: '',
         src: path.resolve(__dirname, '..', '..', 'src'),
+        buildLocales: '',
+        locales: '',
     }
     config.resolve?.modules?.push(paths.src)
     config.resolve?.extensions?.push('.ts', '.tsx')
@@ -33,7 +35,7 @@ export default ({
         new DefinePlugin({
             __IS_DEV__: JSON.stringify(true),
             __API__: JSON.stringify(''),
-            __PROJECT__: JSON.stringify('storybook')
+            __PROJECT__: JSON.stringify('storybook'),
         })
     )
 

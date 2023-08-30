@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
 import { useSelector } from 'react-redux'
 import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems'
+import { VStack } from 'shared/ui/Stack'
 
 interface Props {
     className?: string
@@ -54,7 +55,13 @@ export const Sidebar: FC<Props> = memo(({ className }) => {
             >
                 {collapsed ? '>' : '<'}
             </Button>
-            <div className={classes.items}>{itemList}</div>
+            <VStack
+                gap="8"
+                align="start"
+                className={classes.items}
+            >
+                {itemList}
+            </VStack>
             <div className={classes.switchers}>
                 <ThemeSwitcher />
                 <LanguageSwitcher short={collapsed} />

@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { getUserAuthData } from 'entities/User'
 import { getArticleDetailsData } from 'entities/Article/model/selectors/ArticleDetails'
+import { HStack } from 'shared/ui/Stack'
 
 interface Props {
     className?: string
@@ -28,16 +29,18 @@ export const ArticleDetailsHeader: FC<Props> = ({
     }, [nav])
 
     const onEditArticle = useCallback(() => {
-        nav(RoutePath.article_details + article?.id + '/edit')
+        nav(
+            RoutePath.article_details +
+                article?.id +
+                '/edit'
+        )
     }, [nav])
 
     return (
-        <div
-            className={cn(
-                classes.ArticleDetailsHeader,
-                {},
-                [className]
-            )}
+        <HStack
+            justify="between"
+            max
+            className={cn('', {}, [className])}
         >
             <Button onClick={onBackToList}>
                 {t('Назад к списку')}
@@ -47,6 +50,6 @@ export const ArticleDetailsHeader: FC<Props> = ({
                     {t('Редактировать')}
                 </Button>
             )}
-        </div>
+        </HStack>
     )
 }

@@ -14,6 +14,7 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { getUserAuthData } from 'entities/User'
 import { useParams } from 'react-router-dom'
+import { HStack } from 'shared/ui/Stack'
 
 interface Props {
     className?: string
@@ -42,14 +43,13 @@ export const ProfilePageHeader: FC<Props> = ({
     }, [dispatch])
 
     return (
-        <div
-            className={cn(classes.ProfilePageHeader, {}, [
-                className,
-            ])}
+        <HStack
+            justify="between"
+            className={cn('', {}, [className])}
         >
             <Text title={t('Профиль')} />
             {canEdit && (
-                <div className={classes.btnWrapper}>
+                <>
                     {readonly ? (
                         <Button
                             onClick={onEdit}
@@ -58,7 +58,7 @@ export const ProfilePageHeader: FC<Props> = ({
                             {t('Редактировать')}
                         </Button>
                     ) : (
-                        <>
+                        <HStack gap="8">
                             <Button
                                 onClick={onCancelEdit}
                                 theme={
@@ -69,17 +69,14 @@ export const ProfilePageHeader: FC<Props> = ({
                             </Button>
                             <Button
                                 onClick={onSave}
-                                className={cn(
-                                    classes.saveBtn
-                                )}
                                 theme={ThemeButton.OUTLINE}
                             >
                                 {t('Подтвердить')}
                             </Button>
-                        </>
+                        </HStack>
                     )}
-                </div>
+                </>
             )}
-        </div>
+        </HStack>
     )
 }

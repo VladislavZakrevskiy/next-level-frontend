@@ -32,6 +32,7 @@ import {
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent'
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
+import { HStack, VStack } from 'shared/ui/Stack'
 
 interface Props {
     className?: string
@@ -58,7 +59,6 @@ export const ArticleDetails: FC<Props> = memo(
                             <ArticleCodeBlockComponent
                                 key={block.id}
                                 block={block}
-                                className={classes.block}
                             />
                         )
                     case ArticleBlockType.IMAGE:
@@ -66,14 +66,12 @@ export const ArticleDetails: FC<Props> = memo(
                             <ArticleImageBlockComponent
                                 key={block.id}
                                 block={block}
-                                className={classes.block}
                             />
                         )
                     case ArticleBlockType.TEXT:
                         return (
                             <ArticleTextBlockComponent
                                 key={block.id}
-                                className={classes.block}
                                 block={block}
                             />
                         )
@@ -96,22 +94,18 @@ export const ArticleDetails: FC<Props> = memo(
                         border="50%"
                     />
                     <Skeleton
-                        className={classes.title}
                         width={300}
                         height={32}
                     />
                     <Skeleton
-                        className={classes.skeleton}
                         width={600}
                         height={24}
                     />
                     <Skeleton
-                        className={classes.skeleton}
                         width={'100%'}
                         height={200}
                     />
                     <Skeleton
-                        className={classes.skeleton}
                         width={'100%'}
                         height={200}
                     />
@@ -129,35 +123,32 @@ export const ArticleDetails: FC<Props> = memo(
         } else {
             content = (
                 <>
-                    <div className={classes.avatarWrapper}>
+                    <HStack justify="center">
                         <Avatar
                             size={200}
                             src={data?.img || ''}
                             alt={t('Профиль')}
                             className={classes.avatar}
                         />
-                    </div>
+                    </HStack>
 
-                    <Text
-                        className={classes.title}
-                        title={data?.title}
-                        text={data?.subtitle}
-                        size={TextSize.L}
-                    />
-                    <div className={classes.articleInfo}>
-                        <Icon
-                            Svg={EyeIcon}
-                            className={classes.icon}
+                    <VStack gap="4" max>
+                        <Text
+                            title={data?.title}
+                            text={data?.subtitle}
+                            size={TextSize.L}
                         />
-                        <Text text={String(data?.views)} />
-                    </div>
-                    <div className={classes.articleInfo}>
-                        <Icon
-                            Svg={CalendarIcon}
-                            className={classes.icon}
-                        />
-                        <Text text={data?.createdAt} />
-                    </div>
+                        <HStack gap="8">
+                            <Icon Svg={EyeIcon} />
+                            <Text
+                                text={String(data?.views)}
+                            />
+                        </HStack>
+                        <HStack gap="8">
+                            <Icon Svg={CalendarIcon} />
+                            <Text text={data?.createdAt} />
+                        </HStack>
+                    </VStack>
                     {data?.blocks.map(renderBlock)}
                 </>
             )
@@ -173,7 +164,8 @@ export const ArticleDetails: FC<Props> = memo(
                 removeAfterUnmount
                 reducers={reducers}
             >
-                <div
+                <VStack
+                    gap="16"
                     className={cn(
                         classes.ArticleDetails,
                         {},
@@ -181,7 +173,7 @@ export const ArticleDetails: FC<Props> = memo(
                     )}
                 >
                     {content}
-                </div>
+                </VStack>
             </DynamicModuleLoader>
         )
     }

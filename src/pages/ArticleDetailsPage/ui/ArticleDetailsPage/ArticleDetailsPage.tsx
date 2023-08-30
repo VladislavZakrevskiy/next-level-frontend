@@ -41,7 +41,8 @@ import {
     getArticleDetailsRecommendedIsLoading,
 } from '../../model/selectors/recommended'
 import { fetchRecommendations } from '../../model/services/fetchRecomendations/fetchRecomendations'
-import { ArticleDetailsHeader } from '../ArticleDetailsHeader/ArticleDetailsHeader.module.scss'
+import { VStack } from 'shared/ui/Stack'
+import { ArticleDetailsHeader } from '../ArticleDetailsHeader/ArticleDetailsHeader'
 
 interface Props {
     className?: string
@@ -109,31 +110,33 @@ const ArticleDetailsPage: FC<Props> = ({ className }) => {
                     [className]
                 )}
             >
-                <ArticleDetailsHeader/>
-                <ArticleDetails id={id} />
-                <Text
-                    size={TextSize.L}
-                    className={classes.commentTitle}
-                    title={t('Рекшомендуем')}
-                />
-                <ArticleList
-                    articles={recommendations}
-                    view={ArticleView.SMALL}
-                    isLoading={recommendedIsLoading}
-                    className={classes.recomendations}
-                />
-                <Text
-                    size={TextSize.L}
-                    className={classes.commentTitle}
-                    title={t('Комментарии')}
-                />
-                <LazyAddCommentForm
-                    onSendComment={onSendComment}
-                />
-                <CommentList
-                    isLoading={isLoading}
-                    comments={comments}
-                />
+                <VStack max gap="16">
+                    <ArticleDetailsHeader />
+                    <ArticleDetails id={id} />
+                    <Text
+                        size={TextSize.L}
+                        className={classes.commentTitle}
+                        title={t('Рекшомендуем')}
+                    />
+                    <ArticleList
+                        articles={recommendations}
+                        view={ArticleView.SMALL}
+                        isLoading={recommendedIsLoading}
+                        className={classes.recomendations}
+                    />
+                    <Text
+                        size={TextSize.L}
+                        className={classes.commentTitle}
+                        title={t('Комментарии')}
+                    />
+                    <LazyAddCommentForm
+                        onSendComment={onSendComment}
+                    />
+                    <CommentList
+                        isLoading={isLoading}
+                        comments={comments}
+                    />
+                </VStack>
             </Page>
         </DynamicModuleLoader>
     )

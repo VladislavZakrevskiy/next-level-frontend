@@ -18,6 +18,7 @@ import {
     DynamicModuleLoader,
     ReducerList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { HStack } from 'shared/ui/Stack'
 
 interface Props {
     className?: string
@@ -51,7 +52,7 @@ const addCommentForm: FC<Props> = ({
             reducers={reducers}
             removeAfterUnmount
         >
-            <div
+            <HStack justify='between'
                 className={cn(classes.addCommentForm, {}, [
                     className,
                 ])}
@@ -67,7 +68,7 @@ const addCommentForm: FC<Props> = ({
                 <Button onClick={onCommentHandler}>
                     {t('Отправить')}
                 </Button>
-            </div>
+            </HStack>
         </DynamicModuleLoader>
     )
 }
