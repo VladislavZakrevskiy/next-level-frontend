@@ -16,7 +16,12 @@ export type FlexAlign = 'start' | 'center' | 'end'
 export type FlexDirection = 'row' | 'column'
 export type FlexGap = '0' | '4' | '8' | '16' | '32'
 
-export interface FlexProps {
+type DivProps = React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+>
+
+export interface FlexProps extends DivProps {
     className?: string
     children: ReactNode
     justify?: FlexJustify
@@ -60,7 +65,7 @@ export const Flex: FC<FlexProps> = (props) => {
         align = 'center',
         justify = 'start',
         gap = '0',
-        max = false
+        max = false,
     } = props
 
     const classNames = [
@@ -68,15 +73,15 @@ export const Flex: FC<FlexProps> = (props) => {
         justifyClasses[justify],
         alignClasses[align],
         directionClasses[direction],
-        gapClasses[gap]
+        gapClasses[gap],
     ]
 
     const mods = {
-        [classes.max]: max
+        [classes.max]: max,
     }
 
     return (
-        <div className={cn(classes.Flex, {}, classNames)}>
+        <div className={cn(classes.Flex, mods, classNames)}>
             {children}
         </div>
     )
