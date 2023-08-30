@@ -17,14 +17,6 @@
     z-index: 100000;
     border-radius: 12px;
     box-shadow: 4px 4px 8px var(--listbox-bg);
-
-    .bottom {
-        bottom: 0;
-    }
-
-    .top {
-        bottom: 100%;
-    }
 }
 
 .option {
@@ -41,4 +33,24 @@
 
 .label {
     margin-right: 4px;
+}
+
+.top-left {
+    bottom: 100%;
+    right: 0;
+}
+
+.top-right {
+    bottom: 100%;
+    left: 0;
+}
+
+.bottom-right {
+    top: 100%;
+    left: 0;
+}
+
+.bottom-left {
+    top: 100%;
+    right: 0;
 }

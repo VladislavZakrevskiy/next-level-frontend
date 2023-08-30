@@ -4,8 +4,8 @@ import classes from './ListBox.module.scss'
 import { Listbox as HListBox } from '@headlessui/react'
 import { Button } from 'shared/ui/Button'
 import { HStack } from 'shared/ui/Stack'
+import { DropdownDirection } from 'shared/types/ui'
 
-type DropdownDirection = 'top' | 'bottom'
 
 export interface ListBoxItem {
     value: string
@@ -31,7 +31,7 @@ export const ListBox: FC<Props> = ({
     defaultValue,
     onChange,
     readOnly,
-    direction = 'bottom',
+    direction = 'bottom-left',
     label,
 }) => {
     return (

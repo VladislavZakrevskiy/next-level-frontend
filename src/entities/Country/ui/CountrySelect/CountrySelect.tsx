@@ -56,6 +56,7 @@ export const CountrySelect: FC<Props> = memo(
                 onChange={onChangeHandler}
                 value={value}
                 readOnly={readOnly}
+                direction='top-right'
             />
         )
     }

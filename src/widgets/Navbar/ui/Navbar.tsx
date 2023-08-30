@@ -12,6 +12,8 @@ import {
     AppLinkTheme,
 } from '../../../shared/ui/AppLink/AppLink'
 import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { Dropdown } from 'shared/ui/Dropdown'
+import { Avatar } from 'shared/ui/Avatar'
 
 interface NavbarProps {
     className?: string
@@ -52,13 +54,30 @@ export const Navbar: FC<NavbarProps> = memo(
                     >
                         {t('Создать статью')}
                     </AppLink>
-                    <Button
-                        theme={ThemeButton.OUTLINE}
-                        className={classes.links}
-                        onClick={onLogout}
-                    >
-                        {t('Выйти')}
-                    </Button>
+                    <Dropdown
+                        className={classes.dropdown}
+                        direction="bottom-left"
+                        renderer={
+                            <Avatar
+                                src={authData.avatar || ''}
+                                alt="Avatar"
+                                size={30}
+                            />
+                        }
+                        items={[
+                            {
+                                content: t('Профиль'),
+                                onClick: onLogout,
+                                href:
+                                    RoutePath.profile +
+                                    authData.id,
+                            },
+                            {
+                                content: t('Выйти'),
+                                onClick: onLogout,
+                            },
+                        ]}
+                    />
                 </div>
             )
         }

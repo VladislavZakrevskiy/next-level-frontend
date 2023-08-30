@@ -48,6 +48,7 @@ export const CurrencySelect: FC<Props> = memo(
                 onChange={onChangeHandler}
                 value={value}
                 readOnly={readOnly}
+                direction='top-right'
             />
         )
     }
