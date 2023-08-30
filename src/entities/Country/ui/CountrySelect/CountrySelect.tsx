@@ -4,6 +4,7 @@ import classes from './CountrySelect.module.scss'
 import { Country } from '../../model/types/country'
 import { Select } from 'shared/ui/Select'
 import { useTranslation } from 'react-i18next'
+import { ListBox } from 'shared/ui/ListBox'
 
 interface Props {
     className?: string
@@ -48,10 +49,10 @@ export const CountrySelect: FC<Props> = memo(
         )
 
         return (
-            <Select
+            <ListBox
                 className={cn('', {}, [className])}
                 label={t('Страна')}
-                options={options}
+                items={options}
                 onChange={onChangeHandler}
                 value={value}
                 readOnly={readOnly}

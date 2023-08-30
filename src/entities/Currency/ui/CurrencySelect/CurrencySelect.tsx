@@ -4,6 +4,7 @@ import classes from './CurrencySelect.module.scss'
 import { Currency } from '../../model/types/currency'
 import { Select } from 'shared/ui/Select'
 import { useTranslation } from 'react-i18next'
+import { ListBox } from 'shared/ui/ListBox'
 
 interface Props {
     className?: string
@@ -40,10 +41,10 @@ export const CurrencySelect: FC<Props> = memo(
         )
 
         return (
-            <Select
+            <ListBox
                 className={cn('', {}, [className])}
                 label={t('Валюта')}
-                options={options}
+                items={options}
                 onChange={onChangeHandler}
                 value={value}
                 readOnly={readOnly}
