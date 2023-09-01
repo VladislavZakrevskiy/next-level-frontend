@@ -7,22 +7,27 @@ import {
 } from '@reduxjs/toolkit'
 import { AxiosInstance } from 'axios'
 import { ArticleDetailsSchema } from 'entities/Article'
-import { ProfileSchema } from 'entities/Profile'
 import { UserSchema } from 'entities/User'
 import { LoginSchema } from 'features/AuthByUsername/model/types/loginSchema'
+import { editableProfileSchema } from 'features/EditableProfileCard'
 import { UISchema } from 'features/UI'
 import { addCommentFormSchema } from 'features/addCommentForm'
-import { ArticleDetailsCommentsSchema, ArticleDetailsPageRecommenedSchema } from 'pages/ArticleDetailsPage'
+import {
+    ArticleDetailsCommentsSchema,
+    ArticleDetailsPageRecommenedSchema,
+} from 'pages/ArticleDetailsPage'
 import { ArticlePageSchema } from 'pages/ArticlesPage'
 import { NavigateOptions, To } from 'react-router-dom'
+import { rtkApi } from 'shared/api/rtkApi'
 
 export interface StateSchema {
     user: UserSchema
     ui: UISchema
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
     // Async reducers
     login?: LoginSchema
-    profile?: ProfileSchema
+    profile?: editableProfileSchema
     articleDetais?: ArticleDetailsSchema
     articleDetailsComments?: ArticleDetailsCommentsSchema
     addCommentForm?: addCommentFormSchema
@@ -37,7 +42,10 @@ export interface ReduxStoreWithManager
     reducerManager: ReducerManager
 }
 
-export type MountedReducer = OptionalRecord<StateSchemaKey, boolean>
+export type MountedReducer = OptionalRecord<
+    StateSchemaKey,
+    boolean
+>
 
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>

@@ -9,6 +9,7 @@ import { UserReducer } from 'entities/User'
 import { createReducerManager } from './reducerManager'
 import { $api } from 'shared/api/api'
 import { UIReducer } from 'features/UI'
+import { rtkApi } from 'shared/api/rtkApi'
 // import { NavigateOptions, To } from 'react-router-dom'
 
 export const createReduxStore = (
@@ -20,6 +21,7 @@ export const createReduxStore = (
         ...asyncReducers,
         user: UserReducer,
         ui: UIReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer,
     }
 
     const reducerManager =
@@ -36,7 +38,7 @@ export const createReduxStore = (
                 thunk: {
                     extraArgument: { api: $api /* nav */ },
                 },
-            }),
+            }).concat(rtkApi.middleware),
     })
 
     // @ts-ignore

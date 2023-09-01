@@ -4,8 +4,8 @@ import {
     StoreProvider,
 } from 'app/providers/StoreProvider'
 import { ArticleDetailsReducer } from 'entities/Article/model/slice/ArticleDetailsSlice'
-import { ProfileReducer } from 'entities/Profile'
 import { AuthReducer } from 'features/AuthByUsername/model/slice/authSlice'
+import { ProfileReducer } from 'features/EditableProfileCard/model/slice/profileSlice'
 import { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
 const defaultAsyncReducers: ReducerList = {
