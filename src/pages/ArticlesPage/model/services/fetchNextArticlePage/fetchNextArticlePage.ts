@@ -33,7 +33,7 @@ export const fetchNextArticlePage = createAsyncThunk<
         if (hasMore && !isLoading) {
             dispatch(ArticlePageActions.setPage(page + 1))
             dispatch(
-                fetchArticleList()
+                fetchArticleList({})
             )
         }
     }
