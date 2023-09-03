@@ -5,6 +5,8 @@ import { type BuildOptions } from './types/config'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import CopyPlugin from 'copy-webpack-plugin'
+import CircularDependencyPlugin from 'circular-dependency-plugin'
+
 
 export const buildPlugins = ({
     paths: { html, locales, buildLocales },
@@ -29,6 +31,10 @@ export const buildPlugins = ({
         new CopyPlugin({
             patterns: [{ from: locales, to: buildLocales }],
         }),
+        new CircularDependencyPlugin({
+            exclude: /node_modules/,
+            failOnError: true
+        })
     ]
 
     if (isDev) {
