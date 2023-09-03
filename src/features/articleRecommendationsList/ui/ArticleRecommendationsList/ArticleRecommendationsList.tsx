@@ -16,6 +16,10 @@ export const ArticleRecommendationsList = memo(
         const { t } = useTranslation()
         const { data: articles, isLoading } =
             useGetArticleRecommendationsListQuery(3)
+        
+        if (!articles) {
+            return null
+        }
 
         return (
             <VStack

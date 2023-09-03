@@ -17,7 +17,7 @@ export enum TextAlign {
 export enum TextSize {
     M = 'size_m',
     L = 'size_l',
-    S = 'size_s'
+    S = 'size_s',
 }
 
 interface Props {
@@ -27,6 +27,7 @@ interface Props {
     theme?: TextTheme
     align?: TextAlign
     size?: TextSize
+    'data-testid'?: string
 }
 
 type HeaderTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
@@ -45,9 +46,10 @@ export const Text: FC<Props> = memo(
         theme = TextTheme.PRIMARY,
         align = TextAlign.LEFT,
         size = TextSize.M,
+        'data-testid': dataTestId = 'Text',
     }) => {
         const TitleTag = mapSizetpHeaderTag[size]
-        
+
         return (
             <div
                 className={cn('', {}, [
@@ -58,10 +60,15 @@ export const Text: FC<Props> = memo(
                 ])}
             >
                 {title && (
-                    <TitleTag className={classes.title}>{title}</TitleTag>
+                    <TitleTag
+                        data-testid={dataTestId + '.Header'}
+                        className={classes.title}
+                    >
+                        {title}
+                    </TitleTag>
                 )}
                 {text && (
-                    <p className={classes.text}>{text}</p>
+                    <p data-testid={dataTestId + '.Paragraph'} className={classes.text}>{text}</p>
                 )}
             </div>
         )
