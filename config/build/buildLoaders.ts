@@ -4,20 +4,27 @@ import { buildCssLoader } from './loaders/buildCssLoader'
 import { buildSvgLoader } from './loaders/buildSvgLoader'
 import { buildBabelLoader } from './loaders/buildBabelLoader'
 
-export function buildLoaders({
-    isDev,
-}: BuildOptions): webpack.RuleSetRule[] {
+export function buildLoaders(
+    options: BuildOptions
+): webpack.RuleSetRule[] {
     const svgLoader = buildSvgLoader()
 
-    const babelLoader = buildBabelLoader(isDev)
+    const tsxCodeBabelLoader = buildBabelLoader({
+        ...options,
+        isTsx: true,
+    })
+    const codeBabelLoader = buildBabelLoader({
+        ...options,
+        isTsx: false,
+    })
 
-    const cssLoader = buildCssLoader(isDev)
+    const cssLoader = buildCssLoader(options.isDev)
 
-    const typescriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    }
+    // const typescriptLoader = {
+    //     test: /\.tsx?$/,
+    //     use: 'ts-loader',
+    //     exclude: /node_modules/,
+    // }
 
     const fileLoader = {
         test: /\.(png|jpe?g|gif|woff2|woff)$/i,
@@ -31,8 +38,9 @@ export function buildLoaders({
     return [
         fileLoader,
         svgLoader,
-        babelLoader,
-        typescriptLoader,
+        codeBabelLoader,
+        tsxCodeBabelLoader,
+        // typescriptLoader,
         cssLoader,
     ]
 }
