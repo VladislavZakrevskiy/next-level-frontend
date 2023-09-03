@@ -5,7 +5,12 @@ import { useTranslation } from 'react-i18next'
 import { Button, ThemeButton } from 'shared/ui/Button'
 import { LoginModal } from 'features/AuthByUsername'
 import { useDispatch, useSelector } from 'react-redux'
-import { UserActions, getUserAuthData } from 'entities/User'
+import {
+    UserActions,
+    getUserAuthData,
+    isUserAdmin,
+    isUserManager,
+} from 'entities/User'
 import { Text, TextTheme } from 'shared/ui/Text'
 import {
     AppLink,
@@ -26,6 +31,8 @@ export const Navbar: FC<NavbarProps> = memo(
             useState(false)
         const authData = useSelector(getUserAuthData)
         const dispatch = useDispatch()
+        const isAdmin = useSelector(isUserAdmin)
+        const isManager = useSelector(isUserManager)
 
         const onToggleModal = useCallback(() => {
             setIsAuthModal((prev) => !prev)
@@ -34,6 +41,8 @@ export const Navbar: FC<NavbarProps> = memo(
         const onLogout = useCallback(() => {
             dispatch(UserActions.logout())
         }, [])
+
+        const isAdminPanelAvailable = isAdmin || isManager
 
         if (authData) {
             return (
@@ -65,6 +74,15 @@ export const Navbar: FC<NavbarProps> = memo(
                             />
                         }
                         items={[
+                            ...(isAdminPanelAvailable
+                                ? [
+                                      {
+                                          content:
+                                              t('Админка'),
+                                          href: RoutePath.admin_panel,
+                                      },
+                                  ]
+                                : []),
                             {
                                 content: t('Профиль'),
                                 onClick: onLogout,

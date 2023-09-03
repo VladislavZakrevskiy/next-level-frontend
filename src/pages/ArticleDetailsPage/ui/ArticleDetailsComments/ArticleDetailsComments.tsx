@@ -40,7 +40,7 @@ export const ArticleDetailsComments: FC<Props> = ({
     })
 
     return (
-        <VStack gap='16' className={cn('', {}, [className])}>
+        <VStack max gap='16' className={cn('', {}, [className])}>
             <Text
                 size={TextSize.L}
                 title={t('Комментарии')}

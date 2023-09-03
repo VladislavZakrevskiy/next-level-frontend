@@ -164,7 +164,7 @@ export const ArticleDetails: FC<Props> = memo(
                 removeAfterUnmount
                 reducers={reducers}
             >
-                <VStack
+                <VStack max
                     gap="16"
                     className={cn(
                         classes.ArticleDetails,

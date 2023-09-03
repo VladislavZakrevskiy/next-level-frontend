@@ -18,6 +18,7 @@ export const AppRouter = memo(() => {
                 </Suspense>
             )
 
+            
             return (
                 <Route
                     element={

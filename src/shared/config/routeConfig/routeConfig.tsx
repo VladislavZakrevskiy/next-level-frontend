@@ -7,15 +7,21 @@ import { LazyArticlePage } from 'pages/ArticlesPage'
 import { LazyArticleDetailsPage } from 'pages/ArticleDetailsPage'
 import { LazyArticleCreatePage } from 'pages/ArticleCreatePage'
 import { LazyArticleEditPage } from 'pages/ArticleEditPage'
+import { LazyAdminPanelPage } from 'pages/AdminPanelPage'
+import { UserRoles } from 'entities/User'
+import { ForbiddenPage } from 'pages/ForbiddenPage'
 
 export type AppRouteProps = RouteProps & {
     authOnly?: boolean
+    roles?: UserRoles[]
 }
 
 export enum AppRoutes {
     MAIN = 'main',
     ABOUT = 'about',
     PROFILE = 'profile',
+    FORBIDDEN = 'forbidden',
+    ADMIN_PANEL = 'admin_panel',
     ARTICLES = 'acticles',
     ARTICLE_DETAILS = 'article_details',
     ARTICLE_CREATE = 'article_create',
@@ -28,9 +34,11 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.MAIN]: '/',
     [AppRoutes.ABOUT]: '/about',
     [AppRoutes.PROFILE]: '/profile/', //:id
+    [AppRoutes.ADMIN_PANEL]: '/admin',
+    [AppRoutes.FORBIDDEN]: '/forbidden',
     [AppRoutes.ARTICLES]: '/acticles',
     [AppRoutes.ARTICLE_DETAILS]: '/acticles/', //:id
-    [AppRoutes.ARTICLE_CREATE]: '/acticles/new', 
+    [AppRoutes.ARTICLE_CREATE]: '/acticles/new',
     [AppRoutes.ARTICLE_EDIT]: '/acticles/:id/edit', //:id
     // last
     [AppRoutes.NOT_FOUND]: '*',
@@ -51,6 +59,15 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> =
             element: <LazyProfilePage />,
             authOnly: true,
         },
+        [AppRoutes.ADMIN_PANEL]: {
+            path: RoutePath[AppRoutes.ADMIN_PANEL],
+            element: <LazyAdminPanelPage />,
+            authOnly: true,
+        },
+        [AppRoutes.FORBIDDEN]: {
+            path: RoutePath[AppRoutes.FORBIDDEN],
+            element: <ForbiddenPage />,
+        },
         [AppRoutes.ARTICLES]: {
             path: RoutePath[AppRoutes.ARTICLES],
             element: <LazyArticlePage />,
@@ -65,6 +82,7 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> =
             path: RoutePath[AppRoutes.ARTICLE_EDIT],
             element: <LazyArticleEditPage />,
             authOnly: true,
+            roles: [UserRoles.MANAGER, UserRoles.ADMIN],
         },
         [AppRoutes.ARTICLE_DETAILS]: {
             path: `${

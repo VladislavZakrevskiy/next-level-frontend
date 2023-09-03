@@ -8,7 +8,7 @@ import { AppLink } from 'shared/ui/AppLink'
 export interface DropdownItem {
     disabled?: boolean
     content: ReactNode
-    onClick: () => void
+    onClick?: () => void
     href?: string
 }
 
