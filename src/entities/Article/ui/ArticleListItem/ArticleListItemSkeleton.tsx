@@ -1,9 +1,9 @@
 import { cn } from 'shared/lib/classNames'
 import { FC } from 'react'
 import classes from './ArticleListItem.module.scss'
-import { ArticleView } from '../../model/types/article'
 import { Card } from 'shared/ui/Card'
 import { Skeleton } from 'shared/ui/Skeleton'
+import { ArticleView } from 'entities/Article/model/consts/consts'
 
 interface Props {
     className?: string
@@ -17,7 +17,7 @@ export const ArticleListItemSkeleton: FC<Props> = ({
     if (view === ArticleView.SMALL) {
         return (
             <div
-                className={cn(classes.ArticleListItem, {}, [
+                className={cn('', {}, [
                     className,
                     classes[view],
                 ])}
@@ -42,7 +42,7 @@ export const ArticleListItemSkeleton: FC<Props> = ({
 
     return (
         <div
-            className={cn(classes.ArticleListItem, {}, [
+            className={cn('', {}, [
                 className,
                 classes[view],
             ])}

@@ -1,9 +1,9 @@
 import { Country } from 'entities/Country'
 import { Currency } from 'entities/Currency'
 import {
-    ValidateProfileError,
     editableProfileSchema,
 } from '../types/editableProfileSchema'
+import { ValidateProfileError } from "../consts/ValidateProfileError"
 import {
     ProfileActions,
     ProfileReducer,

@@ -5,12 +5,6 @@ import {
     useCallback,
 } from 'react'
 import classes from './ArticleListItem.module.scss'
-import {
-    Article,
-    ArticleBlockType,
-    ArticleTextBlock,
-    ArticleView,
-} from '../../model/types/article'
 import { Avatar } from 'shared/ui/Avatar'
 import { Text } from 'shared/ui/Text'
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
@@ -25,6 +19,8 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 import { useSelector } from 'react-redux'
 import { getArticlePageView } from 'pages/ArticlesPage/model/selectors/getArticlePage'
 import { AppLink } from 'shared/ui/AppLink'
+import { ArticleBlockType, ArticleView } from 'entities/Article/model/consts/consts'
+import { Article, ArticleTextBlock } from 'entities/Article/model/types/article'
 
 interface Props {
     className?: string

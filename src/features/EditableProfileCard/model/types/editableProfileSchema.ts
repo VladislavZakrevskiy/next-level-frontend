@@ -1,4 +1,5 @@
 import { Profile } from "entities/Profile"
+import { ValidateProfileError } from "../consts/ValidateProfileError"
 
 export interface editableProfileSchema {
     data?: Profile
@@ -9,10 +10,3 @@ export interface editableProfileSchema {
     validateError?: ValidateProfileError[]
 }
 
-export enum ValidateProfileError {
-    NO_DATA = 'NO_DATA',
-    SERVER_ERROR = "SERVER_ERROR",
-    INCORRECT_USER_DATA = 'INCORRECT_USER_DATA',
-    INCORRECT_AGE = 'INCORRECT_AGE',
-    INCORRECT_COUNTRY = 'INCORRECT_COUNTRY'
-}

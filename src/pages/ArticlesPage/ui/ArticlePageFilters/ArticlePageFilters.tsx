@@ -10,7 +10,7 @@ import {
     getArticlePageType,
     getArticlePageView,
 } from 'pages/ArticlesPage/model/selectors/getArticlePage'
-import { ArticleView } from 'entities/Article'
+import { ArticleSortField, ArticleView } from 'entities/Article'
 import { ArticlePageActions } from 'pages/ArticlesPage/model/slice/articlePageSlice'
 import { ArticleViewSelector } from 'features/ArticleViewSelector'
 import { Select } from 'shared/ui/Select'
@@ -18,10 +18,6 @@ import { Card } from 'shared/ui/Card'
 import { Input } from 'shared/ui/Input'
 import { useTranslation } from 'react-i18next'
 import { ArticleSortSelector } from 'entities/Article/ui/ArticleSortSelector/ArticleSortSelector'
-import {
-    ArticleSortField,
-    ArticleType,
-} from 'entities/Article/model/types/article'
 import { SortOrder } from 'shared/types'
 import { fetchArticleList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticleList'
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce'

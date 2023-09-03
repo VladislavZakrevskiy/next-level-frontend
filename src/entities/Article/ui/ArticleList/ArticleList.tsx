@@ -1,12 +1,10 @@
 import { cn } from 'shared/lib/classNames'
 import { FC, useCallback } from 'react'
 import classes from './ArticleList.module.scss'
-import {
-    Article,
-    ArticleView,
-} from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
+import { ArticleView } from 'entities/Article/model/consts/consts'
+import { Article } from 'entities/Article/model/types/article'
 // import {
 //     AutoSizer,
 //     List,

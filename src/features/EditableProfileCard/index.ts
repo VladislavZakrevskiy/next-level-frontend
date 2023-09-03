@@ -1,2 +1,2 @@
 export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard'
-export { editableProfileSchema } from './model/types/editableProfileSchema'
+export type { editableProfileSchema } from './model/types/editableProfileSchema'
