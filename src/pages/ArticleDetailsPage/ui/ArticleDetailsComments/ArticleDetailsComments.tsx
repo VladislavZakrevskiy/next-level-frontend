@@ -1,5 +1,5 @@
 import { cn } from 'shared/lib/classNames'
-import { FC, useCallback } from 'react'
+import { FC, Suspense, useCallback } from 'react'
 import { Text, TextSize } from 'shared/ui/Text'
 import { LazyAddCommentForm } from 'features/addCommentForm'
 import { CommentList } from 'entities/Comment'
@@ -12,6 +12,7 @@ import { useTranslation } from 'react-i18next'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/UseInitialEffect'
 import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { VStack } from 'shared/ui/Stack'
+import { Loader } from 'shared/ui/Loader'
 
 interface Props {
     className?: string
@@ -40,14 +41,20 @@ export const ArticleDetailsComments: FC<Props> = ({
     })
 
     return (
-        <VStack max gap='16' className={cn('', {}, [className])}>
+        <VStack
+            max
+            gap="16"
+            className={cn('', {}, [className])}
+        >
             <Text
                 size={TextSize.L}
                 title={t('Комментарии')}
             />
-            <LazyAddCommentForm
-                onSendComment={onSendComment}
-            />
+            <Suspense fallback={<Loader />}>
+                <LazyAddCommentForm
+                    onSendComment={onSendComment}
+                />
+            </Suspense>
             <CommentList
                 isLoading={isLoading}
                 comments={comments}

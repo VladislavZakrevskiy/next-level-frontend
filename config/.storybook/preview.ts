@@ -4,6 +4,7 @@ import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator
 import { Theme } from '../../src/app/providers/ThemeProvider'
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator/RouterDecorator'
 import { TranslationDecorator } from '../../src/shared/config/storybook/TranslationDecorator/TranslationDecorator';
+import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
 
 const preview: Preview = {
     parameters: {
@@ -19,7 +20,8 @@ const preview: Preview = {
         StyleDecorator,
         ThemeDecorator(Theme.LIGHT),
         RouterDecorator,
-        TranslationDecorator
+        TranslationDecorator,
+        SuspenseDecorator
     ],
 }
 
