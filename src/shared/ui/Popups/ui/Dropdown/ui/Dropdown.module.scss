@@ -1,0 +1,21 @@
+.items {
+	background: var(--card-bg);
+	position: absolute;
+	z-index: 10001;
+	border-radius: 8px;
+	border: 1px solid var(--primary-color);
+	display: flex;
+	flex-direction: column;
+}
+
+.item {
+	padding: 10px 25px;
+	width: 100%;
+	background: none;
+	border: none;
+	outline: none;
+	color: var(--primary-color);
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+}

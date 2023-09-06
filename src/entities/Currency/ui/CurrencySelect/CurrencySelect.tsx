@@ -4,7 +4,7 @@ import classes from './CurrencySelect.module.scss'
 import { Currency } from '../../model/types/currency'
 import { Select } from 'shared/ui/Select'
 import { useTranslation } from 'react-i18next'
-import { ListBox } from 'shared/ui/ListBox'
+import { ListBox } from 'shared/ui/Popups'
 
 interface Props {
     className?: string
