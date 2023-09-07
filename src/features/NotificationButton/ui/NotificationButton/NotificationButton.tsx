@@ -14,6 +14,7 @@ import {
 	BrowserView,
 	MobileView,
 } from "react-device-detect";
+import { AnimationProvider } from "shared/lib/components/AnimationProvider";
 
 interface NotificationButtonProps {
 	className?: string;
@@ -50,12 +51,14 @@ export const NotificationButton = memo(
 
 				<MobileView>
 					{renderer}
-					<Drawer
-						onClose={() => setIsOpen(false)}
-						isOpen={isOpen}
-					>
-						<NotificationList />
-					</Drawer>
+					<AnimationProvider>
+						<Drawer
+							onClose={() => setIsOpen(false)}
+							isOpen={isOpen}
+						>
+							<NotificationList />
+						</Drawer>
+					</AnimationProvider>
 				</MobileView>
 			</div>
 		);
