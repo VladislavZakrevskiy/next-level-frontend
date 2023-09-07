@@ -1,4 +1,4 @@
-import { cn } from "shared/lib/classNames";
+import { cn } from "@/shared/lib/classNames";
 import { FC } from "react";
 import classes from "./Icon.module.scss";
 

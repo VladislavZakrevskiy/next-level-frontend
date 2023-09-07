@@ -1,10 +1,10 @@
-import { cn } from "shared/lib/classNames";
+import { cn } from "@/shared/lib/classNames";
 import { FC, useCallback } from "react";
 import classes from "./AvatarDropdown.module.scss";
-import { Avatar } from "shared/ui/Avatar";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { Avatar } from "@/shared/ui/Avatar";
+import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
 import { useTranslation } from "react-i18next";
-import { Dropdown } from "shared/ui/Popups";
+import { Dropdown } from "@/shared/ui/Popups";
 import {
 	useDispatch,
 	useSelector,
@@ -14,7 +14,7 @@ import {
 	getUserAuthData,
 	isUserAdmin,
 	isUserManager,
-} from "entities/User";
+} from "@/entities/User";
 
 interface Props {
 	className?: string;

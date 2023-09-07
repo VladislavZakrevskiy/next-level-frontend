@@ -1,12 +1,12 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import { FC, memo, useCallback } from 'react'
 import {
     DynamicModuleLoader,
     ReducerList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { ArticlePageReducer } from '../../model/slice/articlePageSlice'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { Page } from 'widgets/Page'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { Page } from '@/widgets/Page'
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage'
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters'
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList'

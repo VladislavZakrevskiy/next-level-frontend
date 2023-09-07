@@ -1,8 +1,8 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import { FC } from 'react'
 import classes from './PageError.module.scss'
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Button';
+import { Button } from '@/shared/ui/Button';
 
 interface Props {
     className?: string

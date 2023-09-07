@@ -1,10 +1,10 @@
-import { cn } from "shared/lib/classNames";
+import { cn } from "@/shared/lib/classNames";
 import React, { FC, ReactNode } from "react";
 import classes from "./ListBox.module.scss";
 import { Listbox as HListBox } from "@headlessui/react";
-import { Button } from "shared/ui/Button";
-import { HStack } from "shared/ui/Stack";
-import { DropdownDirection } from "shared/types/ui";
+import { Button } from "@/shared/ui/Button";
+import { HStack } from "@/shared/ui/Stack";
+import { DropdownDirection } from "@/shared/types/ui";
 import popupClasses from "../../../styles/popup.module.scss";
 
 export interface ListBoxItem {

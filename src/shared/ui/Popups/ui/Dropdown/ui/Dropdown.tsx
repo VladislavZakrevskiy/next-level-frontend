@@ -1,9 +1,9 @@
-import { cn } from "shared/lib/classNames";
+import { cn } from "@/shared/lib/classNames";
 import React, { FC, ReactNode } from "react";
 import classes from "./Dropdown.module.scss";
 import { Menu } from "@headlessui/react";
-import { DropdownDirection } from "shared/types/ui";
-import { AppLink } from "shared/ui/AppLink";
+import { DropdownDirection } from "@/shared/types/ui";
+import { AppLink } from "@/shared/ui/AppLink";
 import popupClasses from "../../../styles/popup.module.scss";
 
 export interface DropdownItem {

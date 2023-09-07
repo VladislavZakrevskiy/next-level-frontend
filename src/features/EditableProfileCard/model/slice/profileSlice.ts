@@ -5,7 +5,7 @@ import {
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData'
 import { updateProfileData } from '../services/updateProfileData/updateProfileData'
 import { editableProfileSchema } from '../types/editableProfileSchema'
-import { Profile } from 'entities/Profile'
+import { Profile } from '@/entities/Profile'
 
 const initialState: editableProfileSchema = {
     readonly: true,

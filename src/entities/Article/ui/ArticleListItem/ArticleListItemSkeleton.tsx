@@ -1,9 +1,9 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import { FC } from 'react'
 import classes from './ArticleListItem.module.scss'
-import { Card } from 'shared/ui/Card'
-import { Skeleton } from 'shared/ui/Skeleton'
-import { ArticleView } from 'entities/Article/model/consts/consts'
+import { Card } from '@/shared/ui/Card'
+import { Skeleton } from '@/shared/ui/Skeleton'
+import { ArticleView } from '@/entities/Article/model/consts/consts'
 
 interface Props {
     className?: string

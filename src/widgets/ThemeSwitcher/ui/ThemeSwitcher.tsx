@@ -2,11 +2,11 @@ import { memo, type FC } from 'react'
 import {
     useTheme,
     Theme,
-} from 'app/providers/ThemeProvider'
-import LightIcon from 'shared/assets/icons/theme-light.svg'
-import DarkIcon from 'shared/assets/icons/theme-dark.svg'
-import { cn } from 'shared/lib/classNames'
-import { Button, ThemeButton } from 'shared/ui/Button'
+} from '@/app/providers/ThemeProvider'
+import LightIcon from '@/shared/assets/icons/theme-light.svg'
+import DarkIcon from '@/shared/assets/icons/theme-dark.svg'
+import { cn } from '@/shared/lib/classNames'
+import { Button, ThemeButton } from '@/shared/ui/Button'
 
 interface ThemeSwitcherProps {
     className?: string

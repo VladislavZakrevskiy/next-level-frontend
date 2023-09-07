@@ -1,7 +1,7 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import { FC } from 'react'
 import classes from './PageLoader.module.scss'
-import { Loader } from 'shared/ui/Loader'
+import { Loader } from '@/shared/ui/Loader'
 
 interface Props {
     className?: string

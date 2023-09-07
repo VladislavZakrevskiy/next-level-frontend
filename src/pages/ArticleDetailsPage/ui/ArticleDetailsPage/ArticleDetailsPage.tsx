@@ -1,20 +1,20 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import { FC, memo } from 'react'
 import classes from './ArticleDetailsPage.module.scss'
 import { useTranslation } from 'react-i18next'
-import { ArticleDetails } from 'entities/Article'
+import { ArticleDetails } from '@/entities/Article'
 import { useParams } from 'react-router-dom'
 import {
     DynamicModuleLoader,
     ReducerList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { ArticleDetailsCommentsReducer } from '../../model/slice/ArticleDetailsCommentsSlice'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { Page } from 'widgets/Page'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { Page } from '@/widgets/Page'
 import { ArticleDetailsPageRecommenedReducer } from '../../model/slice/ArticleDetailsPageRecommenedSlice'
-import { VStack } from 'shared/ui/Stack'
+import { VStack } from '@/shared/ui/Stack'
 import { ArticleDetailsHeader } from '../ArticleDetailsHeader/ArticleDetailsHeader'
-import { ArticleRecommendationsList } from 'features/articleRecommendationsList'
+import { ArticleRecommendationsList } from '@/features/articleRecommendationsList'
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments'
 
 interface Props {

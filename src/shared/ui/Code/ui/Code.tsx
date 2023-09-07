@@ -1,9 +1,9 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import { FC, ReactNode, memo, useCallback } from 'react'
 import classes from './Code.module.scss'
-import { Button, ThemeButton } from 'shared/ui/Button'
-import { Icon } from 'shared/ui/Icon'
-import CopyIcon from 'shared/assets/icons/copy-20-20.svg'
+import { Button, ThemeButton } from '@/shared/ui/Button'
+import { Icon } from '@/shared/ui/Icon'
+import CopyIcon from '@/shared/assets/icons/copy-20-20.svg'
 
 interface Props {
     className?: string

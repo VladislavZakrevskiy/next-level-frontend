@@ -1,14 +1,14 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import { FC, useCallback } from 'react'
 import classes from './ArticleDetailsHeader.module.scss'
 import { useNavigate } from 'react-router-dom'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
-import { Button } from 'shared/ui/Button'
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
+import { Button } from '@/shared/ui/Button'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { getUserAuthData } from 'entities/User'
-import { getArticleDetailsData } from 'entities/Article/model/selectors/ArticleDetails'
-import { HStack } from 'shared/ui/Stack'
+import { getUserAuthData } from '@/entities/User'
+import { getArticleDetailsData } from '@/entities/Article/model/selectors/ArticleDetails'
+import { HStack } from '@/shared/ui/Stack'
 
 interface Props {
     className?: string

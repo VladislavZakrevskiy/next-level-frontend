@@ -1,26 +1,26 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import {
     FC,
     HTMLAttributeAnchorTarget,
     useCallback,
 } from 'react'
 import classes from './ArticleListItem.module.scss'
-import { Avatar } from 'shared/ui/Avatar'
-import { Text } from 'shared/ui/Text'
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
-import { Icon } from 'shared/ui/Icon'
-import { Card } from 'shared/ui/Card'
-import { useHover } from 'shared/lib/hooks/useHover/useHover'
-import { Button } from 'shared/ui/Button'
+import { Avatar } from '@/shared/ui/Avatar'
+import { Text } from '@/shared/ui/Text'
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
+import { Icon } from '@/shared/ui/Icon'
+import { Card } from '@/shared/ui/Card'
+import { useHover } from '@/shared/lib/hooks/useHover/useHover'
+import { Button } from '@/shared/ui/Button'
 import { useTranslation } from 'react-i18next'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { useNavigate } from 'react-router-dom'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
 import { useSelector } from 'react-redux'
-import { getArticlePageView } from 'pages/ArticlesPage/model/selectors/getArticlePage'
-import { AppLink } from 'shared/ui/AppLink'
-import { ArticleBlockType, ArticleView } from 'entities/Article/model/consts/consts'
-import { Article, ArticleTextBlock } from 'entities/Article/model/types/article'
+import { getArticlePageView } from '@/pages/ArticlesPage/model/selectors/getArticlePage'
+import { AppLink } from '@/shared/ui/AppLink'
+import { ArticleBlockType, ArticleView } from '@/entities/Article/model/consts/consts'
+import { Article, ArticleTextBlock } from '@/entities/Article/model/types/article'
 
 interface Props {
     className?: string

@@ -5,11 +5,11 @@ import {
     configureStore,
 } from '@reduxjs/toolkit'
 import { StateSchema } from './StateSchema'
-import { UserReducer } from 'entities/User'
+import { UserReducer } from '@/entities/User'
 import { createReducerManager } from './reducerManager'
-import { $api } from 'shared/api/api'
-import { UIReducer } from 'features/UI'
-import { rtkApi } from 'shared/api/rtkApi'
+import { $api } from '@/shared/api/api'
+import { UIReducer } from '@/features/UI'
+import { rtkApi } from '@/shared/api/rtkApi'
 // import { NavigateOptions, To } from 'react-router-dom'
 
 export const createReduxStore = (

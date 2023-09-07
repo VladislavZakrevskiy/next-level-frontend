@@ -1,11 +1,11 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import { FC, memo, useCallback } from 'react'
 import classes from './ArticleViewSelector.module.scss'
-import { ArticleView } from 'entities/Article'
-import { Button, ThemeButton } from 'shared/ui/Button'
-import { Icon } from 'shared/ui/Icon'
-import ListIcon from 'shared/assets/icons/list-24-24.svg'
-import TiledIcon from 'shared/assets/icons/tiled-24-24.svg'
+import { ArticleView } from '@/entities/Article'
+import { Button, ThemeButton } from '@/shared/ui/Button'
+import { Icon } from '@/shared/ui/Icon'
+import ListIcon from '@/shared/assets/icons/list-24-24.svg'
+import TiledIcon from '@/shared/assets/icons/tiled-24-24.svg'
 
 interface Props {
     className?: string

@@ -1,4 +1,4 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import { FC, memo } from 'react'
 import classes from './Text.module.scss'
 

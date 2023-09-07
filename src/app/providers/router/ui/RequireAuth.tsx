@@ -2,11 +2,11 @@ import {
     UserRoles,
     getUserAuthData,
     getUserRoles,
-} from 'entities/User'
+} from '@/entities/User'
 import { FC, ReactNode, useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { Navigate, useLocation } from 'react-router-dom'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
 
 interface Props {
     children?: ReactNode

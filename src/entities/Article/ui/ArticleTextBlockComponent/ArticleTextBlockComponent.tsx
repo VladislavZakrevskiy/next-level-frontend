@@ -1,8 +1,8 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import { FC, memo } from 'react'
 import classes from './ArticleTextBlockComponent.module.scss'
 import { ArticleTextBlock } from '../../model/types/article'
-import { Text } from 'shared/ui/Text'
+import { Text } from '@/shared/ui/Text'
 
 interface Props {
     className?: string

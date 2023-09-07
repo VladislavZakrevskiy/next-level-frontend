@@ -1,14 +1,14 @@
 import { useTranslation } from 'react-i18next'
 import { memo, useCallback } from 'react'
-import { Text, TextTheme } from 'shared/ui/Text'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { Text, TextTheme } from '@/shared/ui/Text'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/UseInitialEffect'
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/UseInitialEffect'
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm'
-import { ProfileCard } from 'entities/Profile'
-import { Country } from 'entities/Country'
-import { Currency } from 'entities/Currency'
+import { ProfileCard } from '@/entities/Profile'
+import { Country } from '@/entities/Country'
+import { Currency } from '@/entities/Currency'
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError'
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading'
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly'
@@ -18,13 +18,13 @@ import {
     ProfileActions,
     ProfileReducer,
 } from '../../model/slice/profileSlice'
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import {
     DynamicModuleLoader,
     ReducerList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
-import { VStack } from 'shared/ui/Stack'
+import { VStack } from '@/shared/ui/Stack'
 
 interface EditableProfileCardProps {
     className?: string

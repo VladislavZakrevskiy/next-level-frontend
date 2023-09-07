@@ -1,11 +1,11 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import { FC } from 'react'
 import classes from './CommentList.module.scss'
 import { Comment } from '../../model/types/comment'
-import { Text } from 'shared/ui/Text'
+import { Text } from '@/shared/ui/Text'
 import { useTranslation } from 'react-i18next'
 import { CommentCard } from '../CommentCard/CommentCard'
-import { VStack } from 'shared/ui/Stack'
+import { VStack } from '@/shared/ui/Stack'
 interface Props {
     className?: string
     comments?: Comment[]

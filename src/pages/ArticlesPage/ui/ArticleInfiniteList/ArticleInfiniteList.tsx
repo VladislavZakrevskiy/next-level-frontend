@@ -1,17 +1,17 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import { FC } from 'react'
 import classes from './ArticleInfiniteList.module.scss'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSelector } from 'react-redux'
-import { Article, ArticleList, ArticleView } from 'entities/Article'
-import { articlePageSelectors } from 'pages/ArticlesPage/model/slice/articlePageSlice'
+import { Article, ArticleList, ArticleView } from '@/entities/Article'
+import { articlePageSelectors } from '@/pages/ArticlesPage/model/slice/articlePageSlice'
 import {
     getArticlePageIsLoading,
     getArticlePageView,
-} from 'pages/ArticlesPage/model/selectors/getArticlePage'
+} from '@/pages/ArticlesPage/model/selectors/getArticlePage'
 import { useSearchParams } from 'react-router-dom'
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/UseInitialEffect'
-import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage'
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/UseInitialEffect'
+import { initArticlesPage } from '@/pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage'
 
 interface Props {
     className?: string

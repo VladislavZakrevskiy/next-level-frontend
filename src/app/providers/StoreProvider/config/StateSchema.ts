@@ -6,19 +6,19 @@ import {
     ReducersMapObject,
 } from '@reduxjs/toolkit'
 import { AxiosInstance } from 'axios'
-import { ArticleDetailsSchema } from 'entities/Article'
-import { UserSchema } from 'entities/User'
-import { LoginSchema } from 'features/AuthByUsername/model/types/loginSchema'
-import { editableProfileSchema } from 'features/EditableProfileCard'
-import { UISchema } from 'features/UI'
-import { addCommentFormSchema } from 'features/addCommentForm'
+import { ArticleDetailsSchema } from '@/entities/Article'
+import { UserSchema } from '@/entities/User'
+import { LoginSchema } from '@/features/AuthByUsername/model/types/loginSchema'
+import { editableProfileSchema } from '@/features/EditableProfileCard'
+import { UISchema } from '@/features/UI'
+import { addCommentFormSchema } from '@/features/addCommentForm'
 import {
     ArticleDetailsCommentsSchema,
     ArticleDetailsPageRecommenedSchema,
-} from 'pages/ArticleDetailsPage'
-import { ArticlePageSchema } from 'pages/ArticlesPage'
+} from '@/pages/ArticleDetailsPage'
+import { ArticlePageSchema } from '@/pages/ArticlesPage'
 import { NavigateOptions, To } from 'react-router-dom'
-import { rtkApi } from 'shared/api/rtkApi'
+import { rtkApi } from '@/shared/api/rtkApi'
 
 export interface StateSchema {
     user: UserSchema

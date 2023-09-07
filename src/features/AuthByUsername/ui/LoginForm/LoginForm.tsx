@@ -1,15 +1,15 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import { FC, memo, useCallback } from 'react'
 import classes from './LoginForm.module.scss'
 import { useTranslation } from 'react-i18next'
-import { Button, ThemeButton } from 'shared/ui/Button'
-import { Input } from 'shared/ui/Input'
+import { Button, ThemeButton } from '@/shared/ui/Button'
+import { Input } from '@/shared/ui/Input'
 import { useSelector } from 'react-redux'
 import {
     AuthActions,
     loginByUsername,
-} from 'features/AuthByUsername'
-import { Text, TextTheme } from 'shared/ui/Text'
+} from '@/features/AuthByUsername'
+import { Text, TextTheme } from '@/shared/ui/Text'
 import { AuthReducer } from '../../model/slice/authSlice'
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword'
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'
@@ -18,8 +18,8 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import {
     DynamicModuleLoader,
     ReducerList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 interface Props {
     className?: string

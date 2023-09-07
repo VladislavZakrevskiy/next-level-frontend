@@ -1,7 +1,7 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import { FC, useCallback, useMemo } from 'react'
 import classes from './ArticlePageFilters.module.scss'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSelector } from 'react-redux'
 import {
     getArticlePageOrder,
@@ -9,20 +9,20 @@ import {
     getArticlePageSort,
     getArticlePageType,
     getArticlePageView,
-} from 'pages/ArticlesPage/model/selectors/getArticlePage'
-import { ArticleSortField, ArticleView } from 'entities/Article'
-import { ArticlePageActions } from 'pages/ArticlesPage/model/slice/articlePageSlice'
-import { ArticleViewSelector } from 'features/ArticleViewSelector'
-import { Select } from 'shared/ui/Select'
-import { Card } from 'shared/ui/Card'
-import { Input } from 'shared/ui/Input'
+} from '@/pages/ArticlesPage/model/selectors/getArticlePage'
+import { ArticleSortField, ArticleView } from '@/entities/Article'
+import { ArticlePageActions } from '@/pages/ArticlesPage/model/slice/articlePageSlice'
+import { ArticleViewSelector } from '@/features/ArticleViewSelector'
+import { Select } from '@/shared/ui/Select'
+import { Card } from '@/shared/ui/Card'
+import { Input } from '@/shared/ui/Input'
 import { useTranslation } from 'react-i18next'
-import { ArticleSortSelector } from 'entities/Article/ui/ArticleSortSelector/ArticleSortSelector'
-import { SortOrder } from 'shared/types'
-import { fetchArticleList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticleList'
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce'
-import { TabItem, Tabs } from 'shared/ui/Tabs'
-import { ArticleTypeTabs } from 'features/articleTypeTabs/articleTypeTabs';
+import { ArticleSortSelector } from '@/entities/Article/ui/ArticleSortSelector/ArticleSortSelector'
+import { SortOrder } from '@/shared/types'
+import { fetchArticleList } from '@/pages/ArticlesPage/model/services/fetchArticleList/fetchArticleList'
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'
+import { TabItem, Tabs } from '@/shared/ui/Tabs'
+import { ArticleTypeTabs } from '@/features/articleTypeTabs/articleTypeTabs';
 
 interface Props {
     className?: string

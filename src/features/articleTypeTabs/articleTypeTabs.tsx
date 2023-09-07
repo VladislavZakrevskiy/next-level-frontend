@@ -1,13 +1,13 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import { FC, useCallback, useMemo } from 'react'
 import classes from './articleTypeTabs.module.scss'
 import { useSelector } from 'react-redux'
-import { getArticlePageType } from 'pages/ArticlesPage/model/selectors/getArticlePage'
-import { TabItem, Tabs } from 'shared/ui/Tabs'
-import { ArticleType } from 'entities/Article'
+import { getArticlePageType } from '@/pages/ArticlesPage/model/selectors/getArticlePage'
+import { TabItem, Tabs } from '@/shared/ui/Tabs'
+import { ArticleType } from '@/entities/Article'
 import { useTranslation } from 'react-i18next'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { ArticlePageActions } from 'pages/ArticlesPage/model/slice/articlePageSlice'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { ArticlePageActions } from '@/pages/ArticlesPage/model/slice/articlePageSlice'
 
 interface Props {
     className?: string

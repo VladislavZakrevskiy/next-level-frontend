@@ -1,24 +1,24 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import { FC, useCallback } from 'react'
 import classes from './addCommentForm.module.scss'
-import { Input } from 'shared/ui/Input'
-import { Button } from 'shared/ui/Button'
+import { Input } from '@/shared/ui/Input'
+import { Button } from '@/shared/ui/Button'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import {
     getCommentFormError,
     getCommentFormText,
 } from '../../model/selectors/getFormComment'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import {
     AddCommentFormActions,
     AddCommentFormReducer,
-} from 'features/addCommentForm/model/slice/addCommentFormSlice'
+} from '@/features/addCommentForm/model/slice/addCommentFormSlice'
 import {
     DynamicModuleLoader,
     ReducerList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { HStack } from 'shared/ui/Stack'
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { HStack } from '@/shared/ui/Stack'
 
 interface Props {
     className?: string

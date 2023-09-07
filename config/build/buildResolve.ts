@@ -6,7 +6,9 @@ export const buildResolve = ({ paths: { src } }: BuildOptions): webpack.ResolveO
         extensions: ['.tsx', '.ts', '.js'],
         preferAbsolute: true,
         modules: [src, 'node_modules'],
-        alias: {},
+        alias: {
+            '@': src
+        },
         mainFiles: ['index']
     }
 }

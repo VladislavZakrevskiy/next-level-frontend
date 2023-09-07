@@ -1,7 +1,7 @@
-import { cn } from 'shared/lib/classNames/classNames'
+import { cn } from '@/shared/lib/classNames/classNames'
 import { memo, type FC } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button, ThemeButton } from 'shared/ui/Button'
+import { Button, ThemeButton } from '@/shared/ui/Button'
 
 interface Props {
     className?: string

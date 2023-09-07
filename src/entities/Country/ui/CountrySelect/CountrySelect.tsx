@@ -1,10 +1,10 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import { FC, memo, useCallback, useMemo } from 'react'
 import classes from './CountrySelect.module.scss'
 import { Country } from '../../model/types/country'
-import { Select } from 'shared/ui/Select'
+import { Select } from '@/shared/ui/Select'
 import { useTranslation } from 'react-i18next'
-import { ListBox } from 'shared/ui/Popups'
+import { ListBox } from '@/shared/ui/Popups'
 
 interface Props {
     className?: string

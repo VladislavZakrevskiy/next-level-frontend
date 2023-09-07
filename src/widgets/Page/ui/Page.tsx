@@ -1,4 +1,4 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import {
     FC,
     MutableRefObject,
@@ -7,14 +7,14 @@ import {
     useRef,
 } from 'react'
 import classes from './Page.module.scss'
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { UIActions, getUIScrollByPath } from 'features/UI'
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { UIActions, getUIScrollByPath } from '@/features/UI'
 import { useLocation } from 'react-router-dom'
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/UseInitialEffect'
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/UseInitialEffect'
 import { useSelector } from 'react-redux'
-import { StateSchema } from 'app/providers/StoreProvider'
-import { useThrottling } from 'shared/lib/hooks/useThrottling/useThrottling'
+import { StateSchema } from '@/app/providers/StoreProvider'
+import { useThrottling } from '@/shared/lib/hooks/useThrottling/useThrottling'
 
 interface Props {
     className?: string

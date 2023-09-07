@@ -1,13 +1,13 @@
-import { cn } from 'shared/lib/classNames'
+import { cn } from '@/shared/lib/classNames'
 import { FC } from 'react'
 import classes from './CommentCard.module.scss'
 import { Comment } from '../../model/types/comment'
-import { Avatar } from 'shared/ui/Avatar'
-import { Text } from 'shared/ui/Text'
-import { Skeleton } from 'shared/ui/Skeleton'
-import { AppLink } from 'shared/ui/AppLink'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
-import { HStack, VStack } from 'shared/ui/Stack'
+import { Avatar } from '@/shared/ui/Avatar'
+import { Text } from '@/shared/ui/Text'
+import { Skeleton } from '@/shared/ui/Skeleton'
+import { AppLink } from '@/shared/ui/AppLink'
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
+import { HStack, VStack } from '@/shared/ui/Stack'
 
 interface Props {
     className?: string

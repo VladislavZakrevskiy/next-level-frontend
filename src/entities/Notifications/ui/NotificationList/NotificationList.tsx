@@ -1,10 +1,10 @@
-import { cn } from "shared/lib/classNames";
+import { cn } from "@/shared/lib/classNames";
 import { FC } from "react";
 import classes from "./NotificationList.module.scss";
-import { useGeNotificationsQuery } from "entities/Notifications/api/NotificationApi";
-import { VStack } from "shared/ui/Stack";
+import { useGeNotificationsQuery } from "@/entities/Notifications/api/NotificationApi";
+import { VStack } from "@/shared/ui/Stack";
 import { NotificationItem } from "../NotificationItem/NotificationItem";
-import { Skeleton } from "shared/ui/Skeleton";
+import { Skeleton } from "@/shared/ui/Skeleton";
 
 interface Props {
 	className?: string;

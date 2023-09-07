@@ -1,4 +1,4 @@
-import { LOCAL_STORAGE_THEME_KEY } from 'shared/consts/localStorage'
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/consts/localStorage'
 import {
     Theme,
     ThemeContext,

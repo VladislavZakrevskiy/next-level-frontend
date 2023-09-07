@@ -1,8 +1,8 @@
-import { cn } from 'shared/lib/classNames';
+import { cn } from '@/shared/lib/classNames';
 import { FC, Suspense } from 'react';
-import { Modal } from 'shared/ui/Modal';
+import { Modal } from '@/shared/ui/Modal';
 import { LoginFormLazy } from '../LoginForm/LoginForm.lazy';
-import { Loader } from 'shared/ui/Loader';
+import { Loader } from '@/shared/ui/Loader';
 
 interface Props {
     className?: string

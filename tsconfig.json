@@ -16,7 +16,7 @@
         "baseUrl": ".",
         "strict": true,
         "paths": {
-            "*": ["./src/*"]
+            "@/*": ["./src/*"]
         },
         "isolatedModules": true,
         // esModuleInterop позволяет работать с пакетами, которые используют

@@ -1,4 +1,4 @@
-import { Mods, cn } from 'shared/lib/classNames/classNames'
+import { Mods, cn } from '@/shared/lib/classNames/classNames'
 import {
     memo,
     type ButtonHTMLAttributes,

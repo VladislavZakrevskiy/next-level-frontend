@@ -1,4 +1,4 @@
-import { cn, Mods } from "shared/lib/classNames";
+import { cn, Mods } from "@/shared/lib/classNames";
 import {
 	FC,
 	MutableRefObject,
@@ -9,10 +9,10 @@ import {
 	useState,
 } from "react";
 import classes from "./Modal.module.scss";
-import { Portal } from "shared/ui/Portal";
-import { useTheme } from "app/providers/ThemeProvider";
-import { Overlay } from "shared/ui/Overlay";
-import { useModal } from "shared/lib/hooks/useModal/useModal";
+import { Portal } from "@/shared/ui/Portal";
+import { useTheme } from "@/app/providers/ThemeProvider";
+import { Overlay } from "@/shared/ui/Overlay";
+import { useModal } from "@/shared/lib/hooks/useModal/useModal";
 
 interface Props {
 	className?: string;

@@ -10,8 +10,8 @@ import { useTranslation } from "react-i18next";
 import {
 	Button,
 	ThemeButton,
-} from "shared/ui/Button";
-import { LoginModal } from "features/AuthByUsername";
+} from "@/shared/ui/Button";
+import { LoginModal } from "@/features/AuthByUsername";
 import {
 	useDispatch,
 	useSelector,
@@ -21,22 +21,22 @@ import {
 	getUserAuthData,
 	isUserAdmin,
 	isUserManager,
-} from "entities/User";
-import { Text, TextTheme } from "shared/ui/Text";
+} from "@/entities/User";
+import { Text, TextTheme } from "@/shared/ui/Text";
 import {
 	AppLink,
 	AppLinkTheme,
 } from "../../../shared/ui/AppLink/AppLink";
-import { RoutePath } from "shared/config/routeConfig/routeConfig";
-import { Avatar } from "shared/ui/Avatar";
-import { HStack } from "shared/ui/Stack";
-import { Icon } from "shared/ui/Icon";
+import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
+import { Avatar } from "@/shared/ui/Avatar";
+import { HStack } from "@/shared/ui/Stack";
+import { Icon } from "@/shared/ui/Icon";
 import {
 	Dropdown,
 	Popover,
-} from "shared/ui/Popups";
-import { NotificationButton } from "features/NotificationButton";
-import { AvatarDropdown } from "features/AvatarDropdown";
+} from "@/shared/ui/Popups";
+import { NotificationButton } from "@/features/NotificationButton";
+import { AvatarDropdown } from "@/features/AvatarDropdown";
 
 interface NavbarProps {
 	className?: string;
