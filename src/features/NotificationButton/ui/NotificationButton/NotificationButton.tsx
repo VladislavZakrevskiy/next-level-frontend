@@ -51,14 +51,12 @@ export const NotificationButton = memo(
 
 				<MobileView>
 					{renderer}
-					<AnimationProvider>
-						<Drawer
-							onClose={() => setIsOpen(false)}
-							isOpen={isOpen}
-						>
-							<NotificationList />
-						</Drawer>
-					</AnimationProvider>
+					<Drawer
+						onClose={() => setIsOpen(false)}
+						isOpen={isOpen}
+					>
+						<NotificationList />
+					</Drawer>
 				</MobileView>
 			</div>
 		);

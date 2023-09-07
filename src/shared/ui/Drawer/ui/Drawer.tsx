@@ -1,4 +1,7 @@
-import { Mods, cn } from "@/shared/lib/classNames";
+import {
+	Mods,
+	cn,
+} from "@/shared/lib/classNames";
 import {
 	FC,
 	ReactNode,
@@ -9,7 +12,10 @@ import classes from "./Drawer.module.scss";
 import { Portal } from "@/shared/ui/Portal";
 import { Overlay } from "@/shared/ui/Overlay";
 import { useModal } from "@/shared/lib/hooks/useModal/useModal";
-import { useAnimationModules } from "@/shared/lib/components/AnimationProvider";
+import {
+	AnimationProvider,
+	useAnimationModules,
+} from "@/shared/lib/components/AnimationProvider";
 
 interface Props {
 	className?: string;
@@ -21,7 +27,7 @@ interface Props {
 
 const height = window.innerHeight - 100;
 
-export const DrawerContent: FC<Props> = ({
+const DrawerContent: FC<Props> = ({
 	className,
 	children,
 	isOpen,
@@ -134,7 +140,7 @@ export const DrawerContent: FC<Props> = ({
 	);
 };
 
-export const Drawer = (props: Props) => {
+const DrawerAsync = (props: Props) => {
 	const { isLoaded } = useAnimationModules();
 
 	if (!isLoaded) {
@@ -142,4 +148,18 @@ export const Drawer = (props: Props) => {
 	}
 
 	return <DrawerContent {...props} />;
+};
+
+export const Drawer = (props: Props) => {
+	const { isLoaded } = useAnimationModules();
+
+	if (!isLoaded) {
+		return null;
+	}
+
+	return (
+		<AnimationProvider>
+			<DrawerAsync {...props} />
+		</AnimationProvider>
+	);
 };
