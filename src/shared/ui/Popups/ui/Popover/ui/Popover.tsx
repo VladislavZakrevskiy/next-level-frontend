@@ -24,7 +24,7 @@ export const Popover: FC<Props> = ({
 				className,
 			])}
 		>
-			<HPopover.Button
+			<HPopover.Button as={'div'}
 				className={popupClasses.renderer}
 			>
 				{renderer}

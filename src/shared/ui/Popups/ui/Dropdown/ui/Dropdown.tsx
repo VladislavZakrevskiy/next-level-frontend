@@ -33,7 +33,9 @@ export const Dropdown: FC<Props> = ({
 				className,
 			])}
 		>
-			<Menu.Button className={popupClasses.renderer}>
+			<Menu.Button
+				className={popupClasses.renderer}
+			>
 				{renderer}
 			</Menu.Button>
 			<Menu.Items
@@ -41,44 +43,47 @@ export const Dropdown: FC<Props> = ({
 					popupClasses[direction],
 				])}
 			>
-				{items.map((item) => (
-					<Menu.Item as={React.Fragment}>
-						{({ active }) => {
-							if (item.href) {
-								return (
-									<AppLink
-										className={cn(
-											classes.item,
-											{
-												[popupClasses.active]:
-													active,
-											},
-											[]
-										)}
-										to={item.href}
-									>
-										{item.content}
-									</AppLink>
-								);
-							}
+				{items.map((item, index) => {
+					const content = ({
+						active,
+					}: {
+						active: boolean;
+					}) => (
+						<button
+							type="button"
+							disabled={item.disabled}
+							onClick={item.onClick}
+							className={cn(classes.item, {
+								[popupClasses.active]: active,
+							})}
+						>
+							{item.content}
+						</button>
+					);
 
-							return (
-								<button
-									className={cn(
-										classes.item,
-										{
-											[popupClasses.active]:
-												active,
-										},
-										[]
-									)}
-								>
-									{item.content}
-								</button>
-							);
-						}}
-					</Menu.Item>
-				))}
+					if (item.href) {
+						return (
+							<Menu.Item
+								as={AppLink}
+								to={item.href}
+								disabled={item.disabled}
+								key={`dropdown-key-${index}`}
+							>
+								{content}
+							</Menu.Item>
+						);
+					}
+
+					return (
+						<Menu.Item
+							key={`dropdown-key-${index}`}
+							as={React.Fragment}
+							disabled={item.disabled}
+						>
+							{content}
+						</Menu.Item>
+					);
+				})}
 			</Menu.Items>
 		</Menu>
 	);

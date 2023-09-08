@@ -8,13 +8,12 @@ import {
 } from "@/shared/ui/Button";
 import { NotificationList } from "@/entities/Notifications";
 import { Icon } from "@/shared/ui/Icon";
-import TempIcon from "@/shared/assets/icons/about-20-20.svg";
+import NotificationIcon from "@/shared/assets/icons/notification-20-20.svg";
 import { Drawer } from "@/shared/ui/Drawer";
 import {
 	BrowserView,
 	MobileView,
 } from "react-device-detect";
-import { AnimationProvider } from "@/shared/lib/components/AnimationProvider";
 
 interface NotificationButtonProps {
 	className?: string;
@@ -31,7 +30,7 @@ export const NotificationButton = memo(
 				onClick={() => setIsOpen(true)}
 				theme={ThemeButton.CLEAR}
 			>
-				<Icon inverted Svg={TempIcon} />
+				<Icon inverted Svg={NotificationIcon} />
 			</Button>
 		);
 
