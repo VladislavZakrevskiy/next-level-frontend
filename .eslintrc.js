@@ -49,6 +49,16 @@ module.exports = {
 		"eslint-plugin-vlad-path-checker-plugin/path-checker":
 			["error", { alias: "@" }],
 		"eslint-plugin-vlad-path-checker-plugin/public-api-imports":
-			["error", { alias: "@" }],
+			[
+				"error",
+				{
+					alias: "@",
+					testFiles: [
+						"**/*.test.*",
+						"**/*.story.*",
+						"**/StoreDecorator.tsx",
+					],
+				},
+			],
 	},
 };
