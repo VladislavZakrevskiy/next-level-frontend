@@ -60,5 +60,13 @@ module.exports = {
 					],
 				},
 			],
+		"eslint-plugin-vlad-path-checker-plugin/layer-imports":
+			[
+				"error",
+				{
+					alias: "@",
+					ignoreImportPatterns: ['**/StoreProvider', "**/testing"]
+				},
+			],
 	},
 };

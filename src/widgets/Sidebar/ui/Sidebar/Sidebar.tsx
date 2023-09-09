@@ -1,8 +1,6 @@
 import { cn } from '@/shared/lib/classNames/classNames'
 import { type FC, useState, memo, useMemo } from 'react'
 import classes from './Sidebar.module.scss'
-import { ThemeSwitcher } from '@/widgets/ThemeSwitcher'
-import { LanguageSwitcher } from '@/widgets/LanguageSwitcher'
 import { Button, ThemeButton } from '@/shared/ui/Button'
 import { SizeButton } from '@/shared/ui/Button'
 import { useTranslation } from 'react-i18next'
@@ -10,6 +8,8 @@ import { SidebarItem } from '../SidebarItem/SidebarItem'
 import { useSelector } from 'react-redux'
 import { getSidebarItems } from '@/widgets/Sidebar/model/selectors/getSidebarItems'
 import { VStack } from '@/shared/ui/Stack'
+import { LanguageSwitcher } from '@/features/LanguageSwitcher'
+import { ThemeSwitcher } from '@/features/ThemeSwitcher'
 
 interface Props {
     className?: string

@@ -2,7 +2,7 @@ import React from 'react';
 import { StoryFn, Meta} from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/consts/theme'
 import { Navbar } from '../index';
 
 export default {
