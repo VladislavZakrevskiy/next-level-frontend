@@ -2,7 +2,6 @@ import { cn } from "@/shared/lib/classNames";
 import { FC, useCallback } from "react";
 import classes from "./AvatarDropdown.module.scss";
 import { Avatar } from "@/shared/ui/Avatar";
-import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
 import { useTranslation } from "react-i18next";
 import { Dropdown } from "@/shared/ui/Popups";
 import {
@@ -15,6 +14,7 @@ import {
 	isUserAdmin,
 	isUserManager,
 } from "@/entities/User";
+import { RoutePath } from "@/shared/consts/router";
 
 interface Props {
 	className?: string;

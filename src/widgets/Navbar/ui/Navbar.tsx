@@ -27,7 +27,6 @@ import {
 	AppLink,
 	AppLinkTheme,
 } from "../../../shared/ui/AppLink/AppLink";
-import { RoutePath } from "@/shared/config/routeConfig/routeConfig";
 import { Avatar } from "@/shared/ui/Avatar";
 import { HStack } from "@/shared/ui/Stack";
 import { Icon } from "@/shared/ui/Icon";
@@ -37,6 +36,7 @@ import {
 } from "@/shared/ui/Popups";
 import { NotificationButton } from "@/features/NotificationButton";
 import { AvatarDropdown } from "@/features/AvatarDropdown";
+import { RoutePath } from "@/shared/consts/router";
 
 interface NavbarProps {
 	className?: string;
