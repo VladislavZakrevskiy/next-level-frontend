@@ -8,7 +8,7 @@ interface Props {
 	className?: string;
 	onSelect?: (starCount: number) => void;
 	size?: number;
-	selectedStars?: number[];
+	selectedStars?: number
 }
 
 const stars: number[] = [1, 2, 3, 4, 5];
@@ -17,12 +17,10 @@ export const StarRating: FC<Props> = ({
 	className,
 	size = 30,
 	onSelect,
-	selectedStars,
+	selectedStars = 0,
 }) => {
-	const [isHovered, setIsHovered] =
-		useState(false);
 	const [currentStar, setCurrentStar] =
-		useState<number>(1);
+		useState<number>(selectedStars);
 	const [isSelected, setIsSelected] = useState(
 		Boolean(selectedStars)
 	);
