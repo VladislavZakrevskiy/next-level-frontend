@@ -17,12 +17,12 @@ import { Select } from '@/shared/ui/Select'
 import { Card } from '@/shared/ui/Card'
 import { Input } from '@/shared/ui/Input'
 import { useTranslation } from 'react-i18next'
-import { ArticleSortSelector } from '@/entities/Article/ui/ArticleSortSelector/ArticleSortSelector'
 import { SortOrder } from '@/shared/types'
 import { fetchArticleList } from '@/pages/ArticlesPage/model/services/fetchArticleList/fetchArticleList'
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'
 import { TabItem, Tabs } from '@/shared/ui/Tabs'
 import { ArticleTypeTabs } from '@/features/articleTypeTabs/articleTypeTabs';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector'
 
 interface Props {
     className?: string

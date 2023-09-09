@@ -1,8 +1,6 @@
 import { User } from "@/entities/User"
 import { ArticleBlockType, ArticleType } from "../consts/consts"
 
-
-
 export interface ArticleBlockBase {
     id: string
     type: ArticleBlockType
