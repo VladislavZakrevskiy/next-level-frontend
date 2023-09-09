@@ -36,7 +36,7 @@ import {
 } from "@/shared/ui/Popups";
 import { NotificationButton } from "@/features/NotificationButton";
 import { AvatarDropdown } from "@/features/AvatarDropdown";
-import { RoutePath } from "@/shared/consts/router";
+import { getRouteArticleCreate } from "@/shared/consts/router";
 
 interface NavbarProps {
 	className?: string;
@@ -66,7 +66,7 @@ export const Navbar: FC<NavbarProps> = memo(
 						theme={TextTheme.INVERTED}
 					/>
 					<AppLink
-						to={RoutePath.article_create}
+						to={getRouteArticleCreate()}
 						theme={AppLinkTheme.SECONDARY}
 						// className={classes.createBtn}
 					>

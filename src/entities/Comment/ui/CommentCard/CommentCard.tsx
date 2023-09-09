@@ -7,7 +7,7 @@ import { Text } from '@/shared/ui/Text'
 import { Skeleton } from '@/shared/ui/Skeleton'
 import { AppLink } from '@/shared/ui/AppLink'
 import { HStack, VStack } from '@/shared/ui/Stack'
-import { RoutePath } from '@/shared/consts/router'
+import { getRouteProfile } from '@/shared/consts/router'
 
 interface Props {
     className?: string
@@ -52,7 +52,7 @@ export const CommentCard: FC<Props> = ({
             ])}
         >
             <AppLink
-                to={RoutePath.profile + comment.user.id}
+                to={getRouteProfile( comment.user.id)}
                 className={classes.header}
             >
                 {comment.user.avatar && (

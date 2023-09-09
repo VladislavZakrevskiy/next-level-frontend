@@ -24,7 +24,12 @@ module.exports = {
 		sourceType: "module",
 		project: "./tsconfig.json",
 	},
-	plugins: ["react"],
+	plugins: [
+		"react",
+		"i18next",
+		"unused-imports",
+		"eslint-plugin-vlad-path-checker-plugin",
+	],
 	rules: {
 		"react/jsx-indent": [2, 4],
 		"react/jsx-indent-props": [2, 4],
@@ -65,7 +70,10 @@ module.exports = {
 				"error",
 				{
 					alias: "@",
-					ignoreImportPatterns: ['**/StoreProvider', "**/testing"]
+					ignoreImportPatterns: [
+						"**/StoreProvider",
+						"**/testing",
+					],
 				},
 			],
 	},
