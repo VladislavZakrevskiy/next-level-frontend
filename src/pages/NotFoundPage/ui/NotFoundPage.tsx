@@ -13,6 +13,7 @@ export const NotFoundPage: FC<Props> = ({className}) => {
 
     return (
         <Page
+        data-testid='notFound'
             className={cn(classes.NotFoundPage, {}, [className])}
         >
             {t('Страница не найдена')}

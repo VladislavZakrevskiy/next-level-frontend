@@ -13,7 +13,7 @@ export const ForbiddenPage: FC<Props> = ({ className }) => {
     const { t } = useTranslation()
 
     return (
-        <Page
+        <Page data-testid='ForbiddenPage'
             className={cn('', {}, [
                 className,
             ])}
