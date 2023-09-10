@@ -32,7 +32,7 @@ const ArticlesPage: FC<Props> = ({ className }) => {
             reducers={reducers}
             removeAfterUnmount={false}
         >
-            <Page
+            <Page data-testid='ArticlesPage'
                 onScrollEnd={onLoadNextPage}
                 className={cn('', {}, [className])}
             >

@@ -21,7 +21,7 @@ const config: StorybookConfig = {
 		},
 		"@storybook/addon-onboarding",
 		"@storybook/addon-interactions",
-		"storybook-addon-mock/register",
+		"storybook-addon-mock",
 		"storybook-addon-themes",
 	],
 	framework: {
