@@ -23,6 +23,7 @@ import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'
 import { TabItem, Tabs } from '@/shared/ui/Tabs'
 import { ArticleTypeTabs } from '@/features/articleTypeTabs/articleTypeTabs';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector'
+import { VStack } from '@/shared/ui/Stack'
 
 interface Props {
     className?: string
@@ -86,7 +87,7 @@ export const ArticlePageFilters: FC<Props> = ({
     )
 
     return (
-        <div
+        <VStack gap='8' max align='start'
             className={cn(classes.ArticlePageFilters, {}, [
                 className,
             ])}
@@ -103,14 +104,15 @@ export const ArticlePageFilters: FC<Props> = ({
                     view={view}
                 />
             </div>
-            <Card>
+            <Card className={classes.input}>
                 <Input
+                    className={classes.input}
                     placeholder={t('Поиск')}
                     onChange={onChangeSearch}
                     value={search}
                 />
             </Card>
             <ArticleTypeTabs fetchData={fetchData}/>
-        </div>
+        </VStack>
     )
 }

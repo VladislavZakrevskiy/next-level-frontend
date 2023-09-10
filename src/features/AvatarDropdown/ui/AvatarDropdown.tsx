@@ -64,7 +64,6 @@ export const AvatarDropdown: FC<Props> = ({
 					: []),
 				{
 					content: t("Профиль"),
-					onClick: onLogout,
 					href: getRouteProfile(authData.id),
 				},
 				{

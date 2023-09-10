@@ -41,6 +41,7 @@ export const EditableProfileCardHeader: FC<Props> = ({
     return (
         <HStack
             justify="between"
+            gap='8'
             className={cn('', {}, [className])}
         >
             <Text title={t('Профиль')} />

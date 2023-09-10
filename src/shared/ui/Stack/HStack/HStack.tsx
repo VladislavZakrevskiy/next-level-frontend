@@ -6,6 +6,6 @@ type Props = Omit<FlexProps, 'direction'>
 
 export const HStack: FC<Props> = (props) => {
     return (
-        <Flex direction='column' {...props}/>
+        <Flex direction='row' {...props}/>
     )
 }

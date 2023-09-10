@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "webpack serve --env port=3000 --env apiUrl=https://ulbi-course-server.vercel.app",
+		"start": "webpack serve --env port=3000 --env apiUrl=http://localhost:8000",
 		"start:dev": "concurrently \"npm start\" \"npm run server:start\"",
 		"start:vite": "vite",
 		"start:dev:vite": "concurrently \"npm run start:vite\" \"npm run server:start\"",

@@ -88,6 +88,7 @@ export const ProfileCard: FC<Props> = ({
         <VStack
             gap="8"
             max
+            align='start'
             className={cn(classes.ProfileCard, mods, [
                 className,
             ])}
@@ -97,6 +98,7 @@ export const ProfileCard: FC<Props> = ({
                     <Avatar
                         src={data?.avatar}
                         alt="Avatar"
+                        size={150}
                     />
                 </HStack>
             )}

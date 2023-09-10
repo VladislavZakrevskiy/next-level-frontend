@@ -5,4 +5,9 @@
 
 .tab {
     padding: 5px 10px;
+    cursor: pointer;
+
+    &:hover {
+        background: var(--inverted-primary-color);
+    }
 }

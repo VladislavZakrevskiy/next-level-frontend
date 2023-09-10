@@ -1,6 +1,5 @@
 import { cn } from '@/shared/lib/classNames';
 import { FC } from 'react';
-import classes from './ArticleEditPage.module.scss'
 
 interface Props {
     className?: string
@@ -9,7 +8,7 @@ interface Props {
 const ArticleEditPage: FC<Props> = ({className}) => {
     return (
         <div
-            className={cn(classes.ArticleEditPage, {}, [className])}
+            className={cn('', {}, [className])}
         >
             
         </div>

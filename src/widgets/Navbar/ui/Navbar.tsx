@@ -72,7 +72,7 @@ export const Navbar: FC<NavbarProps> = memo(
 					>
 						{t("Создать статью")}
 					</AppLink>
-					<HStack gap="16">
+					<HStack gap="16" className={classes.links}>
 						<NotificationButton />
 						<AvatarDropdown />
 					</HStack>

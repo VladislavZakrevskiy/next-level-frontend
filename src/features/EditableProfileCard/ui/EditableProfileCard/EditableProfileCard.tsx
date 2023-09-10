@@ -148,6 +148,7 @@ export const EditableProfileCard = memo(
         return (
             <DynamicModuleLoader reducers={initialReducers}>
                 <VStack
+                align='end'
                     gap="8"
                     max
                     className={cn('', {}, [className])}

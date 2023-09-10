@@ -1,6 +1,5 @@
 import { cn } from '@/shared/lib/classNames'
 import { FC } from 'react'
-import classes from './ForbiddenPage.module.scss'
 import { Page } from '@/widgets/Page'
 import { useTranslation } from 'react-i18next'
 import { HStack } from '@/shared/ui/Stack'
@@ -15,7 +14,7 @@ export const ForbiddenPage: FC<Props> = ({ className }) => {
 
     return (
         <Page
-            className={cn(classes.ForbiddenPage, {}, [
+            className={cn('', {}, [
                 className,
             ])}
         >

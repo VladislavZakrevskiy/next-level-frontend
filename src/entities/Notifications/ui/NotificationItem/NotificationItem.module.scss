@@ -4,4 +4,8 @@
 
 .link {
     width: 100%;
+
+    &:hover {
+        background: var(--bg-color);
+    }
 }

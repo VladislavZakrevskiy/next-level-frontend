@@ -1,6 +1,5 @@
 import { cn } from "@/shared/lib/classNames";
 import { FC } from "react";
-import classes from "./NotificationList.module.scss";
 import { useGeNotificationsQuery } from "@/entities/Notifications/api/NotificationApi";
 import { VStack } from "@/shared/ui/Stack";
 import { NotificationItem } from "../NotificationItem/NotificationItem";
@@ -23,11 +22,7 @@ export const NotificationList: FC<Props> = ({
 			<VStack
 				max
 				gap="16"
-				className={cn(
-					classes.NotificationList,
-					{},
-					[className]
-				)}
+				className={cn("", {}, [className])}
 			>
 				<Skeleton
 					width={"100%"}
@@ -52,11 +47,7 @@ export const NotificationList: FC<Props> = ({
 		<VStack
 			max
 			gap="16"
-			className={cn(
-				classes.NotificationList,
-				{},
-				[className]
-			)}
+			className={cn("", {}, [className])}
 		>
 			{notifications?.map((notification) => (
 				<NotificationItem

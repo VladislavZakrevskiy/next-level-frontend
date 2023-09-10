@@ -1,6 +1,5 @@
 import { cn } from '@/shared/lib/classNames'
 import { FC } from 'react'
-import classes from './ArticleInfiniteList.module.scss'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSelector } from 'react-redux'
 import { Article, ArticleList, ArticleView } from '@/entities/Article'
@@ -34,7 +33,7 @@ export const ArticleInfiniteList: FC<Props> = ({
     })
     return (
         <div
-            className={cn(classes.ArticleInfiniteList, {}, [
+            className={cn('', {}, [
                 className,
             ])}
         >

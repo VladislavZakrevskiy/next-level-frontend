@@ -68,7 +68,7 @@ export const ListBox: FC<Props> = ({
 							>
 								{({ active }) => (
 									<li
-										className={cn("", {
+										className={cn(classes.option, {
 											[popupClasses.active]:
 												active,
                                             [popupClasses.disabled]:
