@@ -14,7 +14,10 @@ import {
 	isUserAdmin,
 	isUserManager,
 } from "@/entities/User";
-import { getRouteAdminPanel, getRouteProfile } from "@/shared/consts/router";
+import {
+	getRouteAdminPanel,
+	getRouteProfile,
+} from "@/shared/consts/router";
 
 interface Props {
 	className?: string;
@@ -48,6 +51,7 @@ export const AvatarDropdown: FC<Props> = ({
 			direction="bottom-left"
 			renderer={
 				<Avatar
+					fallbackInverted
 					src={authData.avatar || ""}
 					alt="Avatar"
 					size={30}

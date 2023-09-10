@@ -27,6 +27,8 @@ import {
 	ArticleTextBlock,
 } from "@/entities/Article/model/types/article";
 import { getRouteArticleDetails } from "@/shared/consts/router";
+import { AppImage } from "@/shared/ui/AppImage";
+import { Skeleton } from "@/shared/ui/Skeleton";
 
 interface Props {
 	className?: string;
@@ -70,7 +72,13 @@ export const ArticleListItem: FC<Props> = ({
 			>
 				<Card>
 					<div className={classes.imageWrapper}>
-						<img
+						<AppImage
+							fallback={
+								<Skeleton
+									width={200}
+									height={200}
+								/>
+							}
 							src={article.img}
 							alt={article.title}
 							className={classes.img}
@@ -125,7 +133,13 @@ export const ArticleListItem: FC<Props> = ({
 				</header>
 				<Text title={article.title} />
 				{types}
-				<img
+				<AppImage
+					fallback={
+						<Skeleton
+							width={"100%"}
+							height={250}
+						/>
+					}
 					src={article.img}
 					alt={article.title}
 					className={classes.img}
