@@ -62,7 +62,7 @@ export const ArticleListItem: FC<Props> = ({
 
 	if (view === ArticleView.SMALL) {
 		return (
-			<AppLink
+			<AppLink data-testid='ArticleListItem'
 				to={getRouteArticleDetails(article.id)}
 				target={target}
 				className={cn("", {}, [
@@ -116,7 +116,7 @@ export const ArticleListItem: FC<Props> = ({
 					classes[view],
 				])}
 			>
-				<header className={classes.header}>
+				<header data-testid='ArticleListItem' className={classes.header}>
 					<Avatar
 						src={article.user.avatar || ""}
 						alt={article.user.username}

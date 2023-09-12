@@ -83,7 +83,7 @@ export const ArticleList: FC<Props> = ({
     )
 
     return (
-        <div
+        <div data-testid='ArticleList'
             className={cn('', {}, [
                 className,
                 classes[view],

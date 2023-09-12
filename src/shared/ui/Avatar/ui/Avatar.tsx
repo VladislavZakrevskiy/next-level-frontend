@@ -8,20 +8,22 @@ import classes from "./Avatar.module.scss";
 import { AppImage } from "../../AppImage";
 import { Icon } from "../../Icon";
 import { Skeleton } from "../../Skeleton";
+import UserIcon from "@/shared/assets/icons/user-filled.svg";
 
 interface Props {
 	className?: string;
 	src: string;
 	alt: string;
 	size?: number;
-    fallbackInverted?: boolean
+	fallbackInverted?: boolean;
 }
 
 export const Avatar: FC<Props> = ({
 	className,
 	alt,
 	src,
-	size, fallbackInverted
+	size,
+	fallbackInverted,
 }) => {
 	const styles = useMemo<CSSProperties>(
 		() => ({
@@ -41,7 +43,12 @@ export const Avatar: FC<Props> = ({
 				/>
 			}
 			errorFallback={
-				<Icon inverted={fallbackInverted} width={size} height={size} Svg={} />
+				<Icon
+					inverted={fallbackInverted}
+					width={size}
+					height={size}
+					Svg={UserIcon}
+				/>
 			}
 			src={src}
 			alt={alt}

@@ -22,11 +22,11 @@ describe('Роутинг', () => {
 
   describe('Авторизованный', () => { 
     beforeEach(() => {
-      cy.login('admin', '123')
+      cy.login('testuser', '123')
     })
 
     it('Переход на страницу профиля', () => {
-      cy.visit('/profile/1')
+      cy.visit('/profile/4')
       cy.get(selectByTestId("profilePage")).should('exist')
     });
 

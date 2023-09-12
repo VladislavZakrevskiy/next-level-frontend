@@ -22,7 +22,7 @@ export const CommentCard: FC<Props> = ({
 }) => {
     if (isLoading) {
         return (
-            <VStack  max gap='8'
+            <VStack  max gap='8' data-testid='CommentCard.Loading'
                 className={cn(classes.CommentCard, {}, [
                     className, classes.loading
                 ])}
@@ -46,7 +46,7 @@ export const CommentCard: FC<Props> = ({
     if(!comment) return null
 
     return (
-        <VStack max gap='8'
+        <VStack max gap='8' data-testid='CommentCard.Content'
             className={cn(classes.CommentCard, {}, [
                 className,
             ])}

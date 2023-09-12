@@ -66,6 +66,7 @@ export const Flex: FC<FlexProps> = (props) => {
         justify = 'start',
         gap = '0',
         max = false,
+        ...otherProps
     } = props
 
     const classNames = [
@@ -81,7 +82,7 @@ export const Flex: FC<FlexProps> = (props) => {
     }
 
     return (
-        <div className={cn(classes.Flex, mods, classNames)}>
+        <div {...otherProps} className={cn(classes.Flex, mods, classNames)}>
             {children}
         </div>
     )

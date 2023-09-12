@@ -36,7 +36,7 @@ interface RatingCardProps {
 		starsCount: number,
 		feedback?: string
 	) => void;
-	rate?: number
+	rate?: number;
 }
 
 export const RatingCard = memo(
@@ -46,7 +46,8 @@ export const RatingCard = memo(
 			feedbackTitle,
 			hasFeedback,
 			onAccept,
-			onCancel, rate = 0,
+			onCancel,
+			rate = 0,
 			title,
 		} = props;
 		const { t } = useTranslation();
@@ -80,21 +81,29 @@ export const RatingCard = memo(
 		const modalContent = (
 			<>
 				<Text title={feedbackTitle} />
-				<Input
+				<Input data-testid='RatingCard.Input'
 					value={feedback}
-					onChange={(value) =>
-						setFeedback(value)
-					}
+					onChange={(value) => setFeedback(value)}
 					placeholder={t("Ваш отзыв")}
 				/>
 			</>
 		);
 
 		return (
-			<Card max className={cn("", {}, [className])}>
+			<Card data-testid={'RatingCard'}
+				max
+				className={cn("", {}, [className])}
+			>
 				<VStack max align="center" gap="8">
-					<Text title={starCount ? t('Спасибо за оценку!') : title} />
-					<StarRating selectedStars={starCount}
+					<Text
+						title={
+							starCount
+								? t("Спасибо за оценку!")
+								: title
+						}
+					/>
+					<StarRating
+						selectedStars={starCount}
 						size={40}
 						onSelect={onSelectStars}
 					/>
@@ -106,12 +115,16 @@ export const RatingCard = memo(
 							{modalContent}
 							<HStack max justify="end" gap="4">
 								<Button
+									data-testid="RatingCard.Close"
 									onClick={cancelHandler}
 									theme={ThemeButton.OUTLINE_RED}
 								>
 									{t("Отменить")}
 								</Button>
-								<Button onClick={acceptHandler}>
+								<Button
+									data-testid="RatingCard.Send"
+									onClick={acceptHandler}
+								>
 									{t("Отправить")}
 								</Button>
 							</HStack>

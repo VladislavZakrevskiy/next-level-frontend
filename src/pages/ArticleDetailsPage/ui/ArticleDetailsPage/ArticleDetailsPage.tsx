@@ -34,7 +34,7 @@ const ArticleDetailsPage: FC<Props> = ({ className }) => {
 
     if (!id) {
         return (
-            <Page
+            <Page data-testid='ArticleDetailsPage'
                 className={cn(
                     classes.ArticleDetailsPage,
                     {},
@@ -50,7 +50,7 @@ const ArticleDetailsPage: FC<Props> = ({ className }) => {
             reducers={reducers}
             removeAfterUnmount
         >
-            <Page
+            <Page data-testid='ArticleDetailsPage'
                 className={cn(
                     classes.ArticleDetailsPage,
                     {},
