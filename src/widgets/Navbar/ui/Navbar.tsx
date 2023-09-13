@@ -22,7 +22,10 @@ import {
 	isUserAdmin,
 	isUserManager,
 } from "@/entities/User";
-import { Text, TextTheme } from "@/shared/ui/Text";
+import {
+	Text,
+	TextTheme,
+} from "@/shared/ui/Text";
 import {
 	AppLink,
 	AppLinkTheme,
@@ -72,7 +75,10 @@ export const Navbar: FC<NavbarProps> = memo(
 					>
 						{t("Создать статью")}
 					</AppLink>
-					<HStack gap="16" className={classes.links}>
+					<HStack
+						gap="16"
+						className={classes.links}
+					>
 						<NotificationButton />
 						<AvatarDropdown />
 					</HStack>

@@ -7,6 +7,7 @@ module.exports = {
 		"airbnb",
 		"plugin:react/recommended",
 		"eslint-plugin-vlad-path-checker-plugin",
+		// "prettier"
 	],
 	overrides: [
 		{
@@ -31,9 +32,6 @@ module.exports = {
 		"eslint-plugin-vlad-path-checker-plugin",
 	],
 	rules: {
-		"react/jsx-indent": [2, 4],
-		"react/jsx-indent-props": [2, 4],
-		indent: [2, 4],
 		"react/jsx-filename-extension": [
 			2,
 			{ extensions: [".js", ".jsx", ".tsx"] },
