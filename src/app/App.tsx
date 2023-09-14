@@ -5,7 +5,7 @@ import { AppRouter } from './providers/router'
 import { Sidebar } from '../widgets/Sidebar'
 import { PageLoader } from '@/widgets/PageLoader'
 import { useDispatch, useSelector } from 'react-redux'
-import { UserActions, getUserInited } from '@/entities/User'
+import { UserActions, getUserInited, useJsonSettingsByKey } from '@/entities/User'
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme'
 
 const App = () => {

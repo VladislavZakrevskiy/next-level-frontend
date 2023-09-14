@@ -5,6 +5,8 @@ import {
 import { User, UserSchema } from "../types/User";
 import { USER_LOCAL_STORAGE_KEY } from "@/shared/consts/localStorage";
 import { setFeatureFlags } from "@/shared/lib/features";
+import { saveJsonSettings } from "../services/saveJsonSettings";
+import { jsonSettings } from "../types/jsonSettings";
 
 const initialState: UserSchema = {
 	authData: undefined,
@@ -38,6 +40,20 @@ const userSlice = createSlice({
 				USER_LOCAL_STORAGE_KEY
 			);
 		},
+	},
+	extraReducers: (builder) => {
+		builder.addCase(
+			saveJsonSettings.fulfilled,
+			(
+				state,
+				action: PayloadAction<jsonSettings>
+			) => {
+				if (state.authData) {
+					state.authData.jsonSettings =
+						action.payload;
+				}
+			}
+		);
 	},
 });
 
