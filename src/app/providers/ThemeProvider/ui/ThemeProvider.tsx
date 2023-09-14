@@ -23,11 +23,11 @@ export const ThemeProvider: FC<
 	const [isThemeInited, setIsThemeInited] =
 		useState(false);
 	const [theme, setTheme] = useState<Theme>(
-		initialTheme || defaultTheme
+		initialTheme || defaultTheme || Theme.LIGHT
 	);
 
 	useEffect(() => {
-		if (!isThemeInited) {
+		if (!isThemeInited && defaultTheme) {
 			setTheme(defaultTheme);
 			setIsThemeInited(true);
 		}

@@ -7,6 +7,7 @@ import { USER_LOCAL_STORAGE_KEY } from "@/shared/consts/localStorage";
 import { setFeatureFlags } from "@/shared/lib/features";
 import { saveJsonSettings } from "../services/saveJsonSettings";
 import { jsonSettings } from "../types/jsonSettings";
+import { initAuthData } from "../services/initAuthData";
 
 const initialState: UserSchema = {
 	authData: undefined,
@@ -22,6 +23,11 @@ const userSlice = createSlice({
 			action: PayloadAction<User>
 		) => {
 			state.authData = action.payload;
+			setFeatureFlags(action.payload.features);
+			localStorage.setItem(
+				USER_LOCAL_STORAGE_KEY,
+				JSON.stringify(action.payload.id)
+			);
 		},
 		initAuthData: (state) => {
 			const user = localStorage.getItem(
@@ -42,18 +48,35 @@ const userSlice = createSlice({
 		},
 	},
 	extraReducers: (builder) => {
-		builder.addCase(
-			saveJsonSettings.fulfilled,
-			(
-				state,
-				action: PayloadAction<jsonSettings>
-			) => {
-				if (state.authData) {
-					state.authData.jsonSettings =
-						action.payload;
+		builder
+			.addCase(
+				saveJsonSettings.fulfilled,
+				(
+					state,
+					action: PayloadAction<jsonSettings>
+				) => {
+					if (state.authData) {
+						state.authData.jsonSettings =
+							action.payload;
+					}
 				}
-			}
-		);
+			)
+			.addCase(
+				initAuthData.fulfilled,
+				(state, action: PayloadAction<User>) => {
+					state.authData = action.payload;
+					setFeatureFlags(
+						action.payload.features
+					);
+					state._inited = true;
+				}
+			)
+			.addCase(
+				initAuthData.fulfilled,
+				(state) => {
+					state._inited = true;
+				}
+			);
 	},
 });
 
