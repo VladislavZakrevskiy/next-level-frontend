@@ -25,7 +25,8 @@
 		"prepare": "husky install",
 		"script:slice": "node ./scripts/createSlice/index.js",
 		"script:updateImports": "ts-node ./scripts/updateImports/updateImports.ts",
-		"script:shared-public-api": "ts-node ./scripts/createPublicApiForSharedUI/createPublicApiForSharedUI"
+		"script:shared-public-api": "ts-node ./scripts/createPublicApiForSharedUI/createPublicApiForSharedUI",
+		"script:remove-feature": "ts-node ./scripts/removeFeature/removeFeature.ts"
 	},
 	"lint-staged": {
 		"**/*.{ts,tsx}": "eslint"
@@ -109,7 +110,7 @@
 		"stylelint": "^15.10.2",
 		"stylelint-config-standard-scss": "^10.0.0",
 		"ts-loader": "^9.2.6",
-		"ts-morph": "^19.0.0",
+		"ts-morph": "^16.0.0",
 		"ts-node": "^10.5.0",
 		"typescript": "^5.1.6",
 		"typescript-plugin-css-modules": "^5.0.1",
